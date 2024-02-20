@@ -9,6 +9,24 @@ body {
     margin-left: 30px;
 }
 
+#about {
+    display: flex;
+    margin-left:20%;
+    margin-right:20%;
+    border: 10px solid black;
+}
+
+#left {
+    width: 20%;
+    float:left;
+}
+
+#dna {
+    float: right;
+    height: 300px;
+    width: 20%;
+}
+
 .subtitle{
     background-color: #383865;
 }
