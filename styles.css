@@ -48,3 +48,30 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.display{
+    border: 2px solid #5b5b87;
+    margin-left: 120px;
+    margin-right: 120px;
+    display: flex;
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+}
+
+#about-img{
+   text-align: center;
+   font-size: 28px;
+   width: 30%;
+   color: white;
+   
+}
+#dna{
+    height: 300px;
+    width: 70%;
+    display: flex;
+    float: right;
+    
+}
+
+.about-us{
+    
+}
