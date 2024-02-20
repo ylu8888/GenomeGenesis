@@ -23,3 +23,8 @@
     font-size: 20px;
     text-align: center;
 }
+
+.navbar{
+    background-color: black;
+    border: 1px purple solid;
+}
