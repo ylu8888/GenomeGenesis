@@ -1,30 +1,13 @@
 body {
     margin: 0%;
     padding: 0%;
+    background-color: lightgray;
 }
 
 #logo {
     height: 150px;
     width: 33%;
     margin-left: 30px;
-}
-
-#about {
-    display: flex;
-    margin-left:20%;
-    margin-right:20%;
-    border: 10px solid black;
-}
-
-#left {
-    width: 20%;
-    float:left;
-}
-
-#dna {
-    float: right;
-    height: 300px;
-    width: 20%;
 }
 
 .subtitle{
@@ -64,4 +47,31 @@ body {
     color: white;
     justify-content: center;
     align-items: center;
+}
+
+.display{
+    border: 2px solid #5b5b87;
+    margin-left: 120px;
+    margin-right: 120px;
+    display: flex;
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+}
+
+#about-img{
+   text-align: center;
+   font-size: 28px;
+   width: 30%;
+   color: white;
+   
+}
+#dna{
+    height: 300px;
+    width: 70%;
+    display: flex;
+    float: right;
+    
+}
+
+.about-us{
+    
 }
