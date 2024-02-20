@@ -1,11 +1,13 @@
 body {
     margin: 0%;
     padding: 0%;
+    background-color: lightgray;
 }
 
 #logo {
     height: 150px;
     width: 33%;
+    margin-left: 30px;
 }
 
 .subtitle{
