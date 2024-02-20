@@ -1,4 +1,8 @@
 #logo {
     height: 150px;
-    width: 100vw;
+    width: 33%;
+}
+
+.subtitle{
+    background-color: #383865;
 }
