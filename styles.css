@@ -6,6 +6,7 @@ body {
 #logo {
     height: 150px;
     width: 33%;
+    margin-left: 30px;
 }
 
 .subtitle{
@@ -32,6 +33,16 @@ body {
 .navbar{
     background-color: #555585;
     height: 45px;
-    border: 3px #D2F7F1 solid;
+    border: 2px #9F9FC2 solid;
     font-size: 20px;
+    text-align: center;
+}
+
+.navbar a{
+    font-size: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: white;
+    justify-content: center;
+    align-items: center;
 }
