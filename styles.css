@@ -6,3 +6,20 @@
 .subtitle{
     background-color: #383865;
 }
+
+.search-form{
+    display: flex;
+    float: right;
+    justify-content: center;
+    align-items: center;
+    margin-right: 100px;
+    margin-top: 50px;
+}
+
+#search-bar{
+    width: 250px;
+    height: 30px;
+    border-radius: 25px;
+    font-size: 20px;
+    text-align: center;
+}
