@@ -37,6 +37,7 @@ body {
     border: 2px #9F9FC2 solid;
     font-size: 20px;
     text-align: center;
+    padding-top: 10px;
 }
 
 .navbar a{
