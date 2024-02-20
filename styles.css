@@ -30,8 +30,8 @@ body {
 }
 
 .navbar{
-    background-color: #6f4b74;
+    background-color: #555585;
     height: 45px;
-    border: 1px rgb(175, 238, 238) solid;
+    border: 3px #D2F7F1 solid;
     font-size: 20px;
 }
