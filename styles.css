@@ -165,3 +165,32 @@ body {
     height: 60%;
     margin-top: 65px;
 }
+
+#aadith {
+    margin-top: 3%;
+    border: 2px solid #5b5b87;
+    margin-left: 120px;
+    margin-right: 120px;
+    
+    background-image: linear-gradient(to bottom, #dab972 20%, #d5660b 100%);
+    border-radius: 10px;
+    padding: 20px;
+}
+#yang {
+    margin-top: 3%;
+    border: 2px solid #5b5b87;
+    margin-left: 120px;
+    margin-right: 120px;
+    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    border-radius: 10px;
+    padding: 20px;
+}
+#brian {
+    margin-top: 3%;
+    border: 2px solid #5b5b87;
+    margin-left: 120px;
+    margin-right: 120px;
+    background-image: linear-gradient(to bottom, #1e6df6 30%, #1d04d8 100%);
+    border-radius: 10px;
+    padding: 20px;
+}
