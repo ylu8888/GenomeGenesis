@@ -55,22 +55,28 @@ body {
     margin-left: 120px;
     margin-right: 120px;
     display: flex;
-
     background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    
 }
 
 #about-img{
    text-align: center;
-   font-size: 28px;
-   width: 30%;
+   font-size: 25px;
+   width: 40%;
    color: white;
    justify-content: center;
     align-items: center;
     margin: auto;
     padding-bottom: 30px;
    
+}
+
+#about-us{
+   
+    font-size: 50px;
+    
 }
 #dna{
     height: 400px;
@@ -131,4 +137,10 @@ body {
     margin-right: 5%;
     display: flex;
     float: right; 
+}
+
+#cancer{
+    width: 50%;
+    height: 60%;
+    margin-top: 65px;
 }
