@@ -48,6 +48,27 @@ body {
     color: white;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    padding: 10px;
+
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.navbar a:hover {
+    color: brightpurple; 
+    animation: glow 2s infinite alternate; 
+    background-color: rgb(57, 17, 117); 
+    border-radius: 10px;
+
+}
+
+@keyframes glow {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(1.5); 
+    }
 }
 
 .display{
