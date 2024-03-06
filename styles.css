@@ -82,15 +82,40 @@ body {
     
 }
 
+.option_label {
+
+    color: white;
+    font-size: 15px;
+
+}
+
 #data_display {
     border: 2px solid #5b5b87;
     margin-left: 120px;
     margin-right: 120px;
+    padding: 40px;
     background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+#data_graphs {
+    margin: 50px;
+}
+
+#render_btn {
+
+    border-radius: 5px;
+    width: 100px;
+    padding: 12px;
+    color:white;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    background-color: #231c54;
+
 }
 
 #about-img{

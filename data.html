@@ -37,11 +37,28 @@
                 
             </div>
 
+
+
             <div id="data_display">
+
+                <label for="valueDropdown" class = "option_label">Select X axis:</label>
+                <br>
+                <select id="x_drop" onchange="xSelected()"></select>
+                <br><br>
+                <label for="valueDropdown" class = "option_label">Select Value for X axis:</label>
+                <br>
+                <select id="x_val_drop"></select>
+                <br><br>
+                <label for="valueDropdown"class = "option_label">Select Y axis:</label>
+                <br>
+                <select id="y_drop"></select>
+                <br><br>
+
+                <button id = "render_btn" onclick = "generate()">Render</button>
+
+                <div id="data_graphs"></div>
                 
             </div>
-
-
 
         </div>
         <script src="https://cdn.plot.ly/plotly-2.29.1.min.js" charset="utf-8"></script>
