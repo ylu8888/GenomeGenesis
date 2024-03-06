@@ -181,7 +181,6 @@ async function generate() {
 
 }
 
-
 document.addEventListener("DOMContentLoaded", async function() {
     if (window.location.pathname.includes('data.html')) {
         const div1 = await gvc_plot();
