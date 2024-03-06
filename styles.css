@@ -112,9 +112,10 @@ body {
 }
 #dna{
     height: 400px;
-    width: 70%;
+    width: 50%;
     display: flex;
     float: right;
+    border-radius: 10px;
     
 }
 
@@ -175,6 +176,7 @@ body {
     width: 50%;
     height: 300px;
     margin-top: 65px;
+    border-radius: 10px;
 }
 
 #aadith {
