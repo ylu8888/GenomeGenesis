@@ -92,14 +92,18 @@ async function gva_plot() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
     if (window.location.pathname.includes('data.html')) {
-        const div1 = await gvc_plot();
-        const div2 = await gva_plot();
+        try {
+            const div1 = await gvc_plot();
+            const div2 = await gva_plot();
 
-        const displayDiv = document.querySelector('#data_display');
-        displayDiv.appendChild(div1);
-        displayDiv.appendChild(document.createElement('br'));
-        displayDiv.appendChild(div2);
+            const displayDiv = document.querySelector('#data_display');
+            displayDiv.appendChild(div1);
+            displayDiv.appendChild(document.createElement('br'));
+            displayDiv.appendChild(div2);
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
 });
