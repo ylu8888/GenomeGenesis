@@ -103,6 +103,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             displayDiv.appendChild(document.createElement('br'));
             displayDiv.appendChild(div2);
         } catch (error) {
+            const displayDiv = document.querySelector('#data_display');
+            const h = displayDiv.appendChild(document.createElement('h1'))
+            h.textContent = "WHERE PLOT? HUH?"
             console.error("Error:", error);
         }
     }
