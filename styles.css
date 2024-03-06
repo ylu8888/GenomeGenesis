@@ -205,3 +205,30 @@ body {
     border-radius: 10px;
     padding: 20px;
 }
+
+.dict-display{
+    border: 2px solid #5b5b87;
+    margin-left: 200px;
+    margin-right: 200px;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    height: 800px;
+}
+
+#dict-heading{
+    color:  rgb(152, 48, 226);
+    text-align: center;
+}
+
+.dictionary{
+    width: 400px;
+    height: 500px;
+    /*transform: translateX(420px); */
+    transform: scale(1.4);
+    
+    
+}
