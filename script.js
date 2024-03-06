@@ -14,85 +14,6 @@ async function fetchPatientData() {
     }
 }
 
-async function gender_v_colorectal() {
-    try {
-        const patientData = await fetchPatientData();
-
-        const genderTrace = {
-            x: patientData.data
-                .filter(item => item.attributes.colorectal_cancer_risk_factors === "Yes")
-                .map(item => item.attributes.gender),
-            type: 'histogram'
-        };
-
-        return genderTrace;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function gvc_plot() {
-    try {
-        const trace = await gender_v_colorectal();
-        
-        const layout = {
-            title: 'Gender Vs Risk of Colon Cancer',
-            xaxis: {
-                title: 'Gender'
-            },
-            yaxis: {
-                title: '# of People with High Risk'
-            }
-        };
-
-        const div = document.createElement('div');
-        Plotly.newPlot(div, [trace], layout);
-        return div;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function gender_v_alcohol() {
-    try {
-        const patientData = await fetchPatientData();
-
-        const genderTrace = {
-            x: patientData.data
-                .filter(item => item.attributes.alcohol_exposure_intensity == "Heavy Drinker")
-                .map(item => item.attributes.gender),
-            type: 'histogram'
-        };
-
-        return genderTrace;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-async function gva_plot() {
-    try {
-        const trace = await gender_v_alcohol();
-        
-        const layout = {
-            title: 'Gender Vs Alcohol Comsumption',
-            xaxis: {
-                title: 'Gender'
-            },
-            yaxis: {
-                title: '# of Heavy Drinkers'
-            }
-        };
-
-        const div = document.createElement('div');
-        Plotly.newPlot(div, [trace], layout);
-        return div;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
 async function xSelected() {
 
     var pd = await fetchPatientData()
@@ -183,8 +104,6 @@ async function generate() {
 
 document.addEventListener("DOMContentLoaded", async function() {
     if (window.location.pathname.includes('data.html')) {
-        const div1 = await gvc_plot();
-        const div2 = await gva_plot();
 
         var pd = await fetchPatientData()
 
