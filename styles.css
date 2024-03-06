@@ -82,6 +82,17 @@ body {
     
 }
 
+#data_display {
+    border: 2px solid #5b5b87;
+    margin-left: 120px;
+    margin-right: 120px;
+    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #about-img{
    text-align: center;
    font-size: 25px;
