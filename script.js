@@ -24,7 +24,7 @@ async function handler(event, _context) {
 
 async function fetchPatientData() {
     try {
-      const response = await fetch("https://genomegenesis.netlify.app/pathp")
+      const response = await fetch("https://api.cellmodelpassports.sanger.ac.uk/patients?page[size]=10000")
   
       if (!response.ok) {
         throw new Error("Could not fetch resources");
