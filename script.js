@@ -1,9 +1,7 @@
-const express = import('express');
-const cors = import('cors');
+import express from 'express';
+import cors from 'cors';
 
 const app = express();
-
-// Enable CORS for all routes
 app.use(cors());
 
 async function fetchPatientData() {
