@@ -1,26 +1,10 @@
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers':
-    'Origin, X-Requested-With, Content-Type, Accept',
-};
+const express = import('express');
+const cors = import('cors');
 
-async function handler(event, _context) {
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers: CORS_HEADERS,
-    };
-  }
+const app = express();
 
-  return {
-    statusCode: 200,
-    headers: {
-      ...CORS_HEADERS,
-      'Content-Type': 'application/json',
-    },
-  };
-}
-
+// Enable CORS for all routes
+app.use(cors());
 
 async function fetchPatientData() {
     try {
