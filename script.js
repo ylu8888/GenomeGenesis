@@ -1,3 +1,27 @@
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers':
+    'Origin, X-Requested-With, Content-Type, Accept',
+};
+
+async function handler(event, _context) {
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers: CORS_HEADERS,
+    };
+  }
+
+  return {
+    statusCode: 200,
+    headers: {
+      ...CORS_HEADERS,
+      'Content-Type': 'application/json',
+    },
+  };
+}
+
+
 async function fetchPatientData() {
     try {
       const response = await fetch("https://api.cellmodelpassports.sanger.ac.uk/patients?page[size]=10000")
