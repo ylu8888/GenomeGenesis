@@ -82,6 +82,56 @@ body {
     
 }
 
+.slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+  
+.slide.active {
+    display: flex;
+    opacity: 1;
+}
+
+#nextButton{
+    background-color: transparent;
+    color: #ffffff; 
+    border: 2px solid #ffffff;
+    border-radius: 50%; 
+    width: 30px; 
+    height: 30px; 
+    padding: 0; 
+    cursor: pointer;
+    align-items: center; 
+    justify-content: center; 
+    font-size: 12px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+#nextButton:hover {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: transparent; 
+}
+#prevButton{
+    background-color: transparent;
+    color: #ffffff; 
+    border: 2px solid #ffffff;
+    border-radius: 50%; 
+    width: 30px; 
+    height: 30px; 
+    padding: 0; 
+    cursor: pointer;
+    align-items: center; 
+    justify-content: center; 
+    font-size: 12px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+#prevButton:hover {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: transparent;
+}
+
 .option_label {
 
     color: white;
@@ -135,7 +185,7 @@ body {
     font-size: 50px;
     
 }
-#dna{
+.dna{
     height: 400px;
     width: 50%;
     display: flex;
