@@ -1,37 +1,6 @@
-// const CORS_HEADERS = {
-//   'Access-Control-Allow-Origin': '*',
-//   'Access-Control-Allow-Headers':
-//     'Origin, X-Requested-With, Content-Type, Accept',
-// };
-
-var cors = require('cors')
-var corsOptions = {
-  origin: 'http://localhost:3000',
-  optionsSuccessStatus: 200,
-  credentials: true
-}
-
-// async function handler(event, _context) {
-//   if (event.httpMethod === 'OPTIONS') {
-//     return {
-//       statusCode: 200,
-//       headers: CORS_HEADERS,
-//     };
-//   }
-
-//   return {
-//     statusCode: 200,
-//     headers: {
-//       ...CORS_HEADERS,
-//       'Content-Type': 'application/json',
-//     },
-//   };
-// }
-
-
 async function fetchPatientData() {
     try {
-      const response = await fetch("https://cors-anywhere.herokuapp.com/https://genomegenesis.netlify.app/pathp")
+      const response = await fetch("https://api.cellmodelpassports.sanger.ac.uk/patients?page[size]=10000")
   
       if (!response.ok) {
         throw new Error("Could not fetch resources");
