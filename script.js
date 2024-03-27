@@ -1,9 +1,3 @@
-import express from 'express';
-import cors from 'cors';
-
-const app = express();
-app.use(cors());
-
 async function fetchPatientData() {
     try {
       const response = await fetch("https://api.cellmodelpassports.sanger.ac.uk/patients?page[size]=10000")
