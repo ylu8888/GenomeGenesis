@@ -82,12 +82,10 @@ async function sxSelected() {
 
   var xSelect = document.getElementById('sx_drop');
   var xVal = document.getElementById('sx_val_drop');
-  var ySelect = document.getElementById('sy_drop');
 
   var xx = xSelect.value;
 
   xVal.innerHTML = '';
-  ySelect.innerHTML = ''
 
   if (xx) {
 
@@ -99,17 +97,6 @@ async function sxSelected() {
           option.value = value;
           xVal.add(option);
         });
-
-        y_options = Object.keys(sd.data[0].attributes).filter(item => item != xx)
-
-        y_options.forEach(value => {
-
-          var option = document.createElement("option");
-          option.text = value;
-          option.value = value;
-          ySelect.add(option)
-
-        })
 
   }
 
@@ -163,7 +150,6 @@ async function sample_generate() {
   //clean this up, messy just for now
   var sxSelect = document.getElementById('sx_drop');
   var sxv_Select = document.getElementById('sx_val_drop');
-  var sySelect = document.getElementById('sy_drop');
 
   xx = xSelect.value
   xval = xv_Select.value
@@ -171,40 +157,70 @@ async function sample_generate() {
 
   sxx = sxSelect.value
   sxval = sxv_Select.value
-  syy = sySelect.value
 
-  if (sxx === "" || sxval === "" || syy === "") {
+  if (sxx === "" || sxval === "") {
     alert("Please select options in all dropdowns");
   } else {
 
+
+    // this is getting all of the ids of the people that match the first query
     id_list = pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != "null").map(item => item.id)
   
     console.log("This is the id_list:")
     console.log(id_list)
 
-    const trace = [{
+    const sxData = sd.data.filter(item => id_list.includes(item.id)).filter(item => item.attributes[sxx] == sxval).map(item => item.attributes[sxx])
+    console.log("This is sxData")
+    console.log(sxData)
 
-        x: sampled = sd.data.filter(item => id_list.includes(item.id)).filter(item => item.attributes[sxx] == sxval && item.attributes[syy] != "null").map(item => item.attributes[syy]),
-        type: 'histogram',
-        
-      }];
+    // once we get the ids of the people that match the first query, we then filter those people to see the ones who match the second query
+    const trace = [];
+
+    if (sxData.length > 0) {
+      trace.push({
+        x: sxData,
+        type: 'histogram'
+      });
+    } else {
+      trace.push({
+        x: [],
+        type: 'histogram'
+      });
+    }
+
 
     layout = [{
 
-        title: syy.replace(/_/g, ' ') + " Vs " + sxx.replace(/_/g, ' '),
+        title: "Previous Object Vs " + sxx.replace(/_/g, ' '),
         xaxis: {
-          title: syy.replace(/_/g, ' ')
+          title: "Prevoius Object"
         },
         yaxis: {
           title: "# of " + sxval.replace(/_/g, ' ')
         },
+        annotations: []
         
       }];
+
+    if (sxData.length === 0) {
+      layout[0].annotations.push({
+        xref: 'paper',
+        yref: 'paper',
+        x: 0.5,
+        y: 0.5,
+        text: 'No data available',
+        showarrow: false,
+        font: {
+          size: 16,
+          color: 'black'
+        }
+      });
+    }
 
     const div = document.createElement('div');
     Plotly.newPlot(div, trace, layout[0]);
 
-    const displayDiv = document.querySelector('#data_graphs');
+    const displayDiv = document.querySelector('#sample_graphs');
     displayDiv.innerHTML = "";
     displayDiv.appendChild(div);
 
