@@ -32,6 +32,13 @@ body {
     text-align: center;
 }
 
+#search-button{
+    border-radius: 18px;
+    
+    height:35px;
+    width: 50px;
+}
+
 .navbar{
     background-color: #555585;
     height: 60px;
@@ -218,23 +225,31 @@ body {
     margin-right: 120px;
     display: block;
     border-top: transparent;
-    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
+    background-image: linear-gradient(to top, #383865 0%, #74bdce 100%);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 
-#image{
+#image, #image2, #image3{
     height: 50%;
     width: 50%;
     border-radius: 18px;
+    margin-top: 20px;
 }
 
 .articles-api{
     color: white;
     text-align: center;
-    border: 2px solid #5b5b87;
+    border: 3px solid #7474b6;
+    border-radius: 18px;
     margin-left: 20%;
     margin-right: 20%;
+    margin-top: 20px;
+    /* background-color: rgb(64, 58, 58); */
+}
+
+#article-source, #article-source2, #article-source3{
+    font-size: 20px;
 }
 
 
@@ -253,6 +268,7 @@ body {
     border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
+    margin-bottom: -20px;
     display: flex;
     border-top: transparent;
     border-bottom: transparent;

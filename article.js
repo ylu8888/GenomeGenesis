@@ -71,27 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(error);
         });
 
-        
-        // fetch(`api.goperigon.com/v1/all?from=2024-02-26&q=${articleName} OR "Cancer"&sourceGroup=top100&language=en&apiKey=${apiKey}`)
-        // .then(response => response.json())
-        // .then(data => {
-
-        //     console.log(data);
-
-        //     if(data.Response == 'False'){
-        //         name.innerHTML = (`Enter a valid movie title`);
-        //         return;
-        //     }
-
-        //     name.innerHTML = (`${data.articles[0].title}`);
-        //     source.innerHTML = (`${data.articles[0].authorsByline}`);
-        //     img.src = (`${data.articles[0].imageUrl}`);
-        //     description.innerHTML = (`${data.articles[0].description}`);
-        //     url.href = (`${data.articles[0].url}`);
-
-        // })
-
-        
 
     }
 
