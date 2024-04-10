@@ -1,7 +1,7 @@
 body {
     margin: 0%;
     padding: 0%;
-    background-color: rgb(22, 22, 22);
+    background-color: rgb(204, 216, 237);
 }
 
 #logo {
@@ -32,13 +32,29 @@ body {
     text-align: center;
 }
 
+#search-button{
+    border-radius: 18px;
+    
+    height:35px;
+    width: 50px;
+}
+
 .navbar{
     background-color: #555585;
-    height: 45px;
+    height: 60px;
     border: 2px #9F9FC2 solid;
     font-size: 20px;
     text-align: center;
-    padding-top: 10px;
+    padding: 5px;
+}
+
+.navbar-div{
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+
 }
 
 .navbar a{
@@ -55,9 +71,9 @@ body {
 }
 
 .navbar a:hover {
-    color: brightpurple; 
+    color: skyblue; 
     animation: glow 2s infinite alternate; 
-    background-color: rgb(57, 17, 117); 
+    background-color: #555585; 
     border-radius: 10px;
 
 }
@@ -72,14 +88,68 @@ body {
 }
 
 .display{
-    border: 2px solid #5b5b87;
+    border: 5px solid #383865;
     margin-left: 120px;
     margin-right: 120px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: flex;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #383865 0%, #74bdce 100%);
     border-radius: 10px;
     padding: 20px;
-    
+    width: 80vw;
+}
+
+.slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    width: 80vw;
+}
+  
+.slide.active {
+    display: flex;
+    opacity: 1;
+}
+
+#nextButton{
+    background-color: transparent;
+    color: #ffffff; 
+    border: 2px solid #ffffff;
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    padding: 0; 
+    cursor: pointer;
+    align-items: center; 
+    justify-content: center; 
+    font-size: 14px;
+    margin-left: 5%;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+#nextButton:hover {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: transparent; 
+}
+#prevButton{
+    background-color: transparent;
+    color: #ffffff; 
+    border: 2px solid #ffffff;
+    border-radius: 50%; 
+    width: 40px; 
+    height: 40px; 
+    padding: 0; 
+    cursor: pointer;
+    align-items: center; 
+    justify-content: center; 
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+#prevButton:hover {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: transparent;
 }
 
 .option_label {
@@ -90,11 +160,12 @@ body {
 }
 
 #data_display {
-    border: 2px solid #5b5b87;
+    border: 5px solid #383865;
     margin-left: 120px;
     margin-right: 120px;
+    margin-top: 30px;
     padding: 40px;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #383865 0%, #74bdce 100%);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -135,7 +206,7 @@ body {
     font-size: 50px;
     
 }
-#dna{
+.dna{
     height: 400px;
     width: 50%;
     display: flex;
@@ -149,6 +220,40 @@ body {
 } */
 
 .articles-div {
+    border: 5px solid #74bdce;
+    margin-left: 120px;
+    margin-right: 120px;
+    display: block;
+    border-top: transparent;
+    background-image: linear-gradient(to top, #383865 0%, #74bdce 100%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#image, #image2, #image3{
+    height: 50%;
+    width: 50%;
+    border-radius: 18px;
+    margin-top: 20px;
+}
+
+.articles-api{
+    color: white;
+    text-align: center;
+    border: 3px solid #7474b6;
+    border-radius: 18px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 20px;
+    /* background-color: rgb(64, 58, 58); */
+}
+
+#article-source, #article-source2, #article-source3{
+    font-size: 20px;
+}
+
+
+.temp-articles{
     border: 2px solid #5b5b87;
     margin-left: 120px;
     margin-right: 120px;
@@ -160,15 +265,18 @@ body {
 
 #articles {
     color: white;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
+    margin-bottom: -20px;
     display: flex;
     border-top: transparent;
     border-bottom: transparent;
-    background-color: #453a94;
+    background-color: #74bdce;
     text-align: center;
     justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #walter {
@@ -206,40 +314,40 @@ body {
 
 #aadith {
     margin-top: 3%;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
     
-    background-image: linear-gradient(to bottom, #dab972 20%, #d5660b 100%);
+    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
     border-radius: 10px;
     padding: 20px;
 }
 #yang {
     margin-top: 3%;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
     border-radius: 10px;
     padding: 20px;
 }
 #brian {
     margin-top: 3%;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
-    background-image: linear-gradient(to bottom, #1e6df6 30%, #1d04d8 100%);
+    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
     border-radius: 10px;
     padding: 20px;
 }
 
 .dict-display{
-    border: 2px solid #5b5b87;
+    border: 5px solid #383865;
     margin-left: 200px;
     margin-right: 200px;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #383865 0%, #74bdce 100%);
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -247,7 +355,7 @@ body {
 }
 
 #dict-heading{
-    color:  rgb(152, 48, 226);
+    color: #383865;
     text-align: center;
 }
 
