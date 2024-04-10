@@ -1,7 +1,7 @@
 body {
     margin: 0%;
     padding: 0%;
-    background-color: rgb(22, 22, 22);
+    background-color: rgb(204, 216, 237);
 }
 
 #logo {
@@ -34,11 +34,20 @@ body {
 
 .navbar{
     background-color: #555585;
-    height: 45px;
+    height: 60px;
     border: 2px #9F9FC2 solid;
     font-size: 20px;
     text-align: center;
-    padding-top: 10px;
+    padding: 5px;
+}
+
+.navbar-div{
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 100px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+
 }
 
 .navbar a{
@@ -55,9 +64,9 @@ body {
 }
 
 .navbar a:hover {
-    color: brightpurple; 
+    color: skyblue; 
     animation: glow 2s infinite alternate; 
-    background-color: rgb(57, 17, 117); 
+    background-color: #555585; 
     border-radius: 10px;
 
 }
@@ -72,20 +81,23 @@ body {
 }
 
 .display{
-    border: 2px solid #5b5b87;
+    border: 5px solid #383865;
     margin-left: 120px;
     margin-right: 120px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     display: flex;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #383865 0%, #74bdce 100%);
     border-radius: 10px;
     padding: 20px;
-    
+    width: 80vw;
 }
 
 .slide {
     display: none;
     opacity: 0;
     transition: opacity 0.5s ease;
+    width: 80vw;
 }
   
 .slide.active {
@@ -141,11 +153,12 @@ body {
 }
 
 #data_display {
-    border: 2px solid #5b5b87;
+    border: 5px solid #383865;
     margin-left: 120px;
     margin-right: 120px;
+    margin-top: 30px;
     padding: 40px;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #383865 0%, #74bdce 100%);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -200,13 +213,14 @@ body {
 } */
 
 .articles-div {
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
     display: block;
     border-top: transparent;
-    background-image: linear-gradient(to bottom, #453a94 0%, #231c54 80%);
-    
+    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 #image{
@@ -236,15 +250,17 @@ body {
 
 #articles {
     color: white;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
     display: flex;
     border-top: transparent;
     border-bottom: transparent;
-    background-color: #453a94;
+    background-color: #74bdce;
     text-align: center;
     justify-content: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 #walter {
@@ -282,40 +298,40 @@ body {
 
 #aadith {
     margin-top: 3%;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
     
-    background-image: linear-gradient(to bottom, #dab972 20%, #d5660b 100%);
+    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
     border-radius: 10px;
     padding: 20px;
 }
 #yang {
     margin-top: 3%;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
     border-radius: 10px;
     padding: 20px;
 }
 #brian {
     margin-top: 3%;
-    border: 2px solid #5b5b87;
+    border: 5px solid #74bdce;
     margin-left: 120px;
     margin-right: 120px;
-    background-image: linear-gradient(to bottom, #1e6df6 30%, #1d04d8 100%);
+    background-image: linear-gradient(to bottom, #74bdce 0%, white 80%);
     border-radius: 10px;
     padding: 20px;
 }
 
 .dict-display{
-    border: 2px solid #5b5b87;
+    border: 5px solid #383865;
     margin-left: 200px;
     margin-right: 200px;
     justify-content: center;
     align-items: center;
-    background-image: linear-gradient(to bottom, #da72cd -20%, #453a94 100%);
+    background-image: linear-gradient(to bottom, #383865 0%, #74bdce 100%);
     border-radius: 10px;
     padding: 20px;
     display: flex;
@@ -323,7 +339,7 @@ body {
 }
 
 #dict-heading{
-    color:  rgb(152, 48, 226);
+    color: #383865;
     text-align: center;
 }
 
