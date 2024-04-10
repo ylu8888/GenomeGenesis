@@ -367,3 +367,15 @@ body {
     
     
 }
+
+
+/* QUIZZ STUFF */
+
+#start-btn{
+    height: 60px;
+    border-radius: 10px;
+    width: 70px;
+    background-color: rgb(142, 220, 253);
+}
+
+/* END OF QUIZ STUFF */
