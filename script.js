@@ -169,7 +169,7 @@ async function sample_generate() {
     console.log("This is the id_list:")
     console.log(id_list)
 
-    const sxData = sd.data.filter(item => id_list.includes(item.id)).filter(item => item.attributes[sxx] == sxval).map(item => item.attributes[sxx])
+    const sxData = sd.data.filter(item => id_list.includes(item.relationships.patient.data.id)).filter(item => item.attributes[sxx] == sxval).map(item => item.attributes[sxx])
     console.log("This is sxData")
     console.log(sxData)
 
