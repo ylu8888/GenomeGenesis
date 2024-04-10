@@ -58,7 +58,30 @@
 
                 <button id = "render_btn" onclick = "generate()">Render</button>
 
+                <br><br>
+
+                <button id = "more_info" style="display:none" onclick = "sample_patients()">See Sample Information for this group</button>
+
+                <div id = "sample_info_container" style="display:none">
+
+                    <label for="sx_drop" class = "option_label">Select Y axis for Sample Information:</label>
+                    <br>
+                    <select id="sx_drop" onchange="sxSelected()"></select>
+                    <br><br>
+                    <label for="sx_val_drop" class = "option_label">Select Value for Y axis:</label>
+                    <br>
+                    <select id="sx_val_drop"></select>
+                    <br><br>
+
+                    <!-- for this we would also need to add a portion to have a value for the x axis -->
+
+                    <button id = "s_render_btn" onclick = "sample_generate()">Render for Samples</button>
+
+                </div>
+
+
                 <div id="data_graphs"></div>
+                <div id="sample_graphs"></div>
                 
             </div>
 
