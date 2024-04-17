@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const apiKey = 'dd693bc8-bf0d-4c64-8876-79a6ce6feae0';
+    //const apiKey = 'dd693bc8-bf0d-4c64-8876-79a6ce6feae0';
+    const apiKey = '8cee710a-dd0d-44d4-851f-87b88a7b82bb'
 
     const name = document.querySelector('#article-name');
     const source = document.querySelector('#article-source');
