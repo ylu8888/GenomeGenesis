@@ -176,6 +176,16 @@ body {
     margin: 50px;
 }
 
+#sample_graphs {
+    margin: 50px;
+}
+
+#patient_display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 #render_btn {
 
     border-radius: 5px;
@@ -212,6 +222,12 @@ body {
     font-weight: bold;
     border: none;
     background-color: #6255b8;
+
+}
+
+#sample_info_container {
+
+    margin-top: 40px;
 
 }
 
@@ -392,4 +408,13 @@ body {
     transform: scale(1.4);
     
     
+}
+
+.data_header{
+    font-size: 1.5em;
+    color:#ffffff
+}
+
+#set_selection {
+    color: #ffffff
 }
