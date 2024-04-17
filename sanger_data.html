@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Genome Genesis </title>
+        <link rel="stylesheet" href="styles.css">
+        <meta charset="UTF-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.plot.ly/plotly-2.29.1.min.js" charset="utf-8"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="title-container">
+                <div class="subtitle">
+                    <img id="logo" src="images/logo.png">
+
+                    <form class="search-form">
+                        <input id="search-bar" type="text" placeholder="Search . . .">
+                    </form>
+
+                    
+
+                </div>
+                <!-- <h3>WebGenomics Team at Stony Brook University</h3> -->
+                
+               
+          
+            </div>
+
+            <div class="navbar">
+
+                <a href="index.html" class = "navbar-div"> Home </a>
+                <a href="about.html" class = "navbar-div"> About </a>
+                <a href="data.html" class = "navbar-div"> Data </a>
+                <a href="research.html" class = "navbar-div"> Research </a>
+                <a href="news.html" class = "navbar-div"> News </a>
+                <a href="contact.html" class = "navbar-div"> Contact </a>
+                
+            </div>
+
+
+
+            <div id="data_display">
+
+                <div id = "set_selection">
+
+                    <h2 id = "selection_header">Select a Dataset to explore from the Sanger API:</h2>
+
+                    <select id = "option_drop" onchange="optionSelected()">
+                        <option value="" disabled selected>Select an option</option>
+                        <option value="patient">Patients</option>
+                        <option value="sample">Samples</option>
+                    </select>
+
+                </div>
+
+                <button id = "reset_btn" style="display:none" onclick = "window.location.href = 'sanger_data.html';">
+                    Back to DataSet Selection
+                </button>
+
+                <div id="patient_data_container" style= "display:none">
+
+                    <h2 class = "data_header">Explore Information about Patient Data:</h2>
+
+                    <label for="valueDropdown" class = "option_label">Select Y axis:</label>
+                    <br>
+                    <select id="x_drop" onchange="xSelected()"></select>
+                    <br><br>
+                    <label for="valueDropdown" class = "option_label">Select Value for Y axis:</label>
+                    <br>
+                    <select id="x_val_drop"></select>
+                    <br><br>
+                    <label for="valueDropdown"class = "option_label">Select X axis:</label>
+                    <br>
+                    <select id="y_drop"></select>
+                    <br><br>
+
+                    <button id = "render_btn" onclick = "generate()">Render</button>
+
+                    <br><br>
+
+                    <button id = "more_info" style="display:none" onclick = "sample_patients()">See Sample Information for this group</button>
+                    <br><br>
+
+                    <div id = "sample_info_container" style="display:none">
+
+                        <label for="sx_drop" class = "option_label">Select Y axis for Sample Information:</label>
+                        <br>
+                        <select id="sx_drop" onchange="sxSelected()"></select>
+                        <br><br>
+                        <label for="sx_val_drop" class = "option_label">Select Value for Y axis:</label>
+                        <br>
+                        <select id="sx_val_drop"></select>
+                        <br><br>
+
+                        <!-- for this we would also need to add a portion to have a value for the x axis -->
+
+                        <button id = "s_render_btn" onclick = "sp_generate()">Render for Samples</button>
+
+                    </div>
+
+
+                    <div id="data_graphs"></div>
+                    <div id="sample_graphs"></div>
+
+                </div>
+
+                <div id = "sample_data_container" style= "display:none">
+
+                    <h2 class = "data_header">Explore Information about Sample Data:</h2>
+
+                    <label for="valueDropdown" class = "option_label">Select Y axis:</label>
+                    <br>
+                    <select id="sample_x_drop" onchange="sample_xSelected()"></select>
+                    <br><br>
+                    <label for="valueDropdown" class = "option_label">Select Value for Y axis:</label>
+                    <br>
+                    <select id="sample_x_val_drop"></select>
+                    <br><br>
+                    <label for="valueDropdown"class = "option_label">Select X axis:</label>
+                    <br>
+                    <select id="sample_y_drop"></select>
+                    <br><br>
+
+                    <button id = "render_btn" onclick = "sample_generate()">Render</button>
+
+                    <br><br>
+
+                    <div id="sample_data_graphs"></div>
+
+                </div>
+                
+            </div>
+
+        </div>
+        <script src="script.js"></script>
+
+    </body>
+</html>

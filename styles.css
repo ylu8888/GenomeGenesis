@@ -52,7 +52,7 @@ body {
     display: inline-block;
     border: 2px solid black;
     border-radius: 10px;
-    width: 100px;
+    width: 120px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
 
 }
@@ -159,6 +159,33 @@ body {
 
 }
 
+.api_link {
+    background-color: #74bdce;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 5px solid #383865;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.api_display{
+    border: 5px solid #383865;
+    margin-left: 120px;
+    margin-right: 120px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #383865 0%, #74bdce 100%);
+    border-radius: 10px;
+    padding: 20px;
+    width: 80vw;
+}
+
 #data_display {
     border: 5px solid #383865;
     margin-left: 120px;
@@ -174,6 +201,16 @@ body {
 
 #data_graphs {
     margin: 50px;
+}
+
+#sample_graphs {
+    margin: 50px;
+}
+
+#patient_display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #render_btn {
@@ -212,6 +249,12 @@ body {
     font-weight: bold;
     border: none;
     background-color: #6255b8;
+
+}
+
+#sample_info_container {
+
+    margin-top: 40px;
 
 }
 
@@ -394,6 +437,14 @@ body {
     
 }
 
+.data_header{
+    font-size: 1.5em;
+    color:#ffffff
+}
+
+#set_selection {
+    color: #ffffff
+}
 
 /* QUIZZ STUFF */
 

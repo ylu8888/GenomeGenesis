@@ -33,11 +33,107 @@ async function fetchSampleData() {
 
 }
 
+function resetForm() {
+
+  // in this function we need to reset everything and so the options for the datasets once again
+
+  // first check which dataset we are in
+  
+  var p_div = document.getElementById('patient_data_container')
+  var s_div = document.getElementById('sample_data_container')
+
+  if (p_div.style.display != "none") {
+
+    var p_graphs = document.getElementById('data_graphs')
+    var sp_graphs = document.getElementById('sample_graphs')
+
+    p_graphs.innerHTML = ''
+    sp_graphs.innerHTML = ''
+
+    var xSelect = document.getElementById('x_drop');
+    var xv_Select = document.getElementById('x_val_drop');
+    var ySelect = document.getElementById('y_drop');
+
+    xSelect.innerHTML = ''
+    xv_Select.innerHTML = ''
+    ySelect.innerHTML = ''
+
+    var sxSelect = document.getElementById('sample_x_drop');
+    var sxv_Select = document.getElementById('sample_x_val_drop');
+    var sySelect = document.getElementById('sample_y_drop');
+
+    sxSelect.innerHTML = ''
+    sxv_Select.innerHTML = ''
+    sySelect.innerHTML = ''
+
+    // now we can hide the divs themselves
+    var info_div = document.getElementById('sample_info_container');
+    
+    info_div.style.display = 'none'
+    p_div.style.display = 'none'
+
+
+  } else if (s_div.style.display != "none") {
+
+    
+
+  }
+
+  // after we do this we can show the option dropdown again
+  var options = document.getElementById('patient_data_container')
+  options.style.display = "block"
+
+  //hide the reset btn
+  var reset = document.getElementById('reset_btn')
+  reset.style.display = 'none'
+  
+
+}
+
+function optionSelected() {
+
+  console.log("is this function gettign run")
+
+  var select = document.getElementById('option_drop');
+
+  var sVal = select.value;
+
+  console.log("This is sVal")
+  console.log(sVal)
+
+  if (sVal == 'patient') {
+
+    var p_div = document.getElementById('patient_data_container')
+    p_div.style.display = "block"
+
+    // once we show what we need to show we can hide it again
+
+    select_div = document.getElementById('set_selection')
+    select_div.style.display = 'none'
+
+    //show the reset btn
+    reset = document.getElementById('reset_btn')
+    reset.style.display = 'block'
+
+  } else if (sVal == 'sample') {
+
+    var s_div = document.getElementById('sample_data_container');
+    s_div.style.display = "block"
+    
+    select_div = document.getElementById('set_selection')
+    select_div.style.display = 'none'
+
+    //show the reset btn
+    reset = document.getElementById('reset_btn')
+    reset.style.display = 'block'
+
+  }
+
+}
+
 async function xSelected() {
 
     var pd = await fetchPatientData()
-
-    console.log("Is this function getting hit")
 
     var xSelect = document.getElementById('x_drop');
     var xVal = document.getElementById('x_val_drop');
@@ -118,7 +214,7 @@ async function sample_patients() {
   xval = xv_Select.value
   yy = ySelect.value
 
-  id_list = pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != "null").map(item => item.id)
+  id_list = pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != null).map(item => item.id)
 
   console.log("This is the id_list:")
   console.log(id_list)
@@ -138,7 +234,7 @@ async function sample_patients() {
 
 }
 
-async function sample_generate() {
+async function sp_generate() {
 
   var pd = await fetchPatientData()
   var sd = await fetchSampleData()
@@ -164,7 +260,7 @@ async function sample_generate() {
 
 
     // this is getting all of the ids of the people that match the first query
-    id_list = pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != "null").map(item => item.id)
+    id_list = pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != null).map(item => item.id)
   
     console.log("This is the id_list:")
     console.log(id_list)
@@ -193,7 +289,7 @@ async function sample_generate() {
 
         title: "Previous Object Vs " + sxx.replace(/_/g, ' '),
         xaxis: {
-          title: "Prevoius Object"
+          title: "Previous Object"
         },
         yaxis: {
           title: "# of " + sxval.replace(/_/g, ' ')
@@ -237,6 +333,9 @@ async function generate() {
     var xv_Select = document.getElementById('x_val_drop');
     var ySelect = document.getElementById('y_drop');
 
+    var sample_patient_div = document.getElementById('sample_info_container')
+    var sample_graphs = document.getElementById('sample_graphs')
+
     xx = xSelect.value
     xval = xv_Select.value
     yy = ySelect.value
@@ -245,9 +344,17 @@ async function generate() {
         alert("Please select options in all dropdowns");
     } else {
 
+        // first check if the sample patient information is already showing, if so clear it since it is no longer significant
+        if (sample_patient_div.style.display != 'none') {
+          // this means that there is information here, so remove everything and then hide it
+          sample_graphs.innerHTML = "";
+          sample_patient_div.style.display = 'none';
+        }
+
+
         const trace = [{
 
-            x: pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != "null").map(item => item.attributes[yy]),
+            x: pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != null).map(item => item.attributes[yy]),
             type: 'histogram',
             
           }];
@@ -278,6 +385,125 @@ async function generate() {
 
 }
 
+async function sample_xSelected(){
+
+  var sd = await fetchSampleData();
+
+  var xSelect = document.getElementById('sample_x_drop');
+  var xVal = document.getElementById('sample_x_val_drop');
+  var ySelect = document.getElementById('sample_y_drop');
+
+  var xx = xSelect.value;
+
+  xVal.innerHTML = '';
+  ySelect.innerHTML = ''
+
+  if (xx) {
+
+      val_options = [...new Set(sd.data.filter(item => item.attributes[xx] !== "NA" && item.attributes[xx] !== "Unknown" && item.attributes[xx] != null).map(item => item.attributes[xx]))];
+
+      val_options.forEach(value => {
+          var option = document.createElement("option");
+          option.text = value;
+          option.value = value;
+          xVal.add(option);
+        });
+
+        y_options = Object.keys(sd.data[0].attributes).filter(item => item != xx)
+
+        y_options.forEach(value => {
+
+          var option = document.createElement("option");
+          option.text = value;
+          option.value = value;
+          ySelect.add(option)
+
+        })
+
+  }
+
+}
+
+
+async function sample_generate() {
+
+  var sd = await fetchSampleData()
+
+  var xSelect = document.getElementById('sample_x_drop');
+  var xv_Select = document.getElementById('sample_x_val_drop');
+  var ySelect = document.getElementById('sample_y_drop');
+
+  xx = xSelect.value
+  xval = xv_Select.value
+  yy = ySelect.value
+
+  if (xx === "" || xval === "" || yy === "") {
+      alert("Please select options in all dropdowns");
+  } else {
+
+    sxData = sd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != null).map(item => item.attributes[yy])
+
+    const trace = []
+
+    if (sxData.length > 0) {
+
+      trace.push({
+
+        x:sxData,
+        type: 'histogram'
+        
+      })
+
+    } else {
+
+      trace.push({
+        x: [],
+        type: 'histogram'
+      });
+
+    }
+
+    layout = [{
+
+        title: yy.replace(/_/g, ' ') + " Vs " + xx.replace(/_/g, ' '),
+        xaxis: {
+          title: yy.replace(/_/g, ' ')
+        },
+        yaxis: {
+          title: "# of " + xval.replace(/_/g, ' ')
+        },
+        annotations: []
+        
+      }];
+
+    if (sxData.length === 0) {
+      layout[0].annotations.push({
+        xref: 'paper',
+        yref: 'paper',
+        x: 0.5,
+        y: 0.5,
+        text: 'No data available',
+        showarrow: false,
+        font: {
+          size: 16,
+          color: 'black'
+        }
+      });
+    }
+
+
+    const div = document.createElement('div');
+    Plotly.newPlot(div, trace, layout[0]);
+
+    const displayDiv = document.querySelector('#sample_data_graphs');
+    displayDiv.innerHTML = "";
+    displayDiv.appendChild(div);
+
+  }
+}
+
+
+
 document.addEventListener("DOMContentLoaded", async function() {
     if (window.location.pathname.includes('data.html')) {
 
@@ -294,6 +520,20 @@ document.addEventListener("DOMContentLoaded", async function() {
             option.value = x_options[i];
             option.text = x_options[i];
             x_dropdown.add(option);
+        }
+
+        // repeat the same process for the sample data
+
+        var sd = await fetchSampleData()
+        var sx_options = Object.keys(sd.data[0].attributes)
+
+        var sx_dropdown = document.getElementById('sample_x_drop');
+
+        for (var i = 0; i < sx_options.length; i++) {
+          var option = document.createElement('option');
+          option.value = sx_options[i];
+          option.text = sx_options[i];
+          sx_dropdown.add(option)
         }
 
     }
