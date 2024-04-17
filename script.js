@@ -33,66 +33,8 @@ async function fetchSampleData() {
 
 }
 
-function resetForm() {
-
-  // in this function we need to reset everything and so the options for the datasets once again
-
-  // first check which dataset we are in
-  
-  var p_div = document.getElementById('patient_data_container')
-  var s_div = document.getElementById('sample_data_container')
-
-  if (p_div.style.display != "none") {
-
-    var p_graphs = document.getElementById('data_graphs')
-    var sp_graphs = document.getElementById('sample_graphs')
-
-    p_graphs.innerHTML = ''
-    sp_graphs.innerHTML = ''
-
-    var xSelect = document.getElementById('x_drop');
-    var xv_Select = document.getElementById('x_val_drop');
-    var ySelect = document.getElementById('y_drop');
-
-    xSelect.innerHTML = ''
-    xv_Select.innerHTML = ''
-    ySelect.innerHTML = ''
-
-    var sxSelect = document.getElementById('sample_x_drop');
-    var sxv_Select = document.getElementById('sample_x_val_drop');
-    var sySelect = document.getElementById('sample_y_drop');
-
-    sxSelect.innerHTML = ''
-    sxv_Select.innerHTML = ''
-    sySelect.innerHTML = ''
-
-    // now we can hide the divs themselves
-    var info_div = document.getElementById('sample_info_container');
-    
-    info_div.style.display = 'none'
-    p_div.style.display = 'none'
-
-
-  } else if (s_div.style.display != "none") {
-
-    
-
-  }
-
-  // after we do this we can show the option dropdown again
-  var options = document.getElementById('patient_data_container')
-  options.style.display = "block"
-
-  //hide the reset btn
-  var reset = document.getElementById('reset_btn')
-  reset.style.display = 'none'
-  
-
-}
 
 function optionSelected() {
-
-  console.log("is this function gettign run")
 
   var select = document.getElementById('option_drop');
 
@@ -106,28 +48,23 @@ function optionSelected() {
     var p_div = document.getElementById('patient_data_container')
     p_div.style.display = "block"
 
-    // once we show what we need to show we can hide it again
-
-    select_div = document.getElementById('set_selection')
-    select_div.style.display = 'none'
-
-    //show the reset btn
-    reset = document.getElementById('reset_btn')
-    reset.style.display = 'block'
-
   } else if (sVal == 'sample') {
 
     var s_div = document.getElementById('sample_data_container');
     s_div.style.display = "block"
-    
-    select_div = document.getElementById('set_selection')
-    select_div.style.display = 'none'
-
-    //show the reset btn
-    reset = document.getElementById('reset_btn')
-    reset.style.display = 'block'
-
+  
   }
+
+  select_div = document.getElementById('set_selection')
+  select_div.style.display = 'none'
+
+  //show the reset btn
+  reset = document.getElementById('reset_btn')
+  reset.style.display = 'block'
+
+  api_reset = document.getElementById('api_reset_btn')
+  api_reset.style.display = 'block'
+
 
 }
 
@@ -223,6 +160,13 @@ async function sample_patients() {
 
   // Get the dropdown element
   var x_dropdown = document.getElementById('sx_drop');
+
+  var dummy_option = document.createElement('option');
+  dummy_option.textContent = "Select a Y sample element";
+  dummy_option.value = "";
+  dummy_option.disabled = true;
+  dummy_option.selected = true;
+  x_dropdown.add(dummy_option)
 
   // Loop through the list and create options
   for (var i = 0; i < x_options.length; i++) {
@@ -351,25 +295,49 @@ async function generate() {
           sample_patient_div.style.display = 'none';
         }
 
+        sxData = pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != null).map(item => item.attributes[yy]);
 
-        const trace = [{
+        const trace = [];
 
-            x: pd.data.filter(item => item.attributes[xx] == xval && item.attributes[yy] != null).map(item => item.attributes[yy]),
-            type: 'histogram',
-            
-          }];
-
+        if (sxData.length > 0) {
+          trace.push({
+            x: sxData,
+            type: 'histogram'
+          });
+        } else {
+          trace.push({
+            x: [],
+            type: 'histogram'
+          });
+        }
+    
         layout = [{
 
-            title: yy.replace(/_/g, ' ') + " Vs " + xx.replace(/_/g, ' '),
-            xaxis: {
-              title: yy.replace(/_/g, ' ')
-            },
-            yaxis: {
-              title: "# of " + xval.replace(/_/g, ' ')
-            },
-            
-          }];
+          title: yy.replace(/_/g, ' ') + " Vs " + xx.replace(/_/g, ' '),
+          xaxis: {
+            title: yy.replace(/_/g, ' ')
+          },
+          yaxis: {
+            title: "# of " + xval.replace(/_/g, ' ')
+          },
+          annotations: []
+          
+        }];
+    
+        if (sxData.length === 0) {
+          layout[0].annotations.push({
+            xref: 'paper',
+            yref: 'paper',
+            x: 0.5,
+            y: 0.5,
+            text: 'No data available',
+            showarrow: false,
+            font: {
+              size: 16,
+              color: 'black'
+            }
+          });
+        }
 
         const div = document.createElement('div');
         Plotly.newPlot(div, trace, layout[0]);
@@ -382,6 +350,9 @@ async function generate() {
         displayDiv.appendChild(div);
 
     }
+
+    
+
 
 }
 
@@ -515,6 +486,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         var x_dropdown = document.getElementById('x_drop');
 
         // Loop through the list and create options
+        //create a dummy option first
+        var dum_option = document.createElement('option');
+        dum_option.textContent = "Select a Y element";
+        dum_option.value = "";
+        dum_option.disabled = true;
+        dum_option.selected = true;
+        x_dropdown.add(dum_option)
+
         for (var i = 0; i < x_options.length; i++) {
             var option = document.createElement('option');
             option.value = x_options[i];
@@ -528,6 +507,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         var sx_options = Object.keys(sd.data[0].attributes)
 
         var sx_dropdown = document.getElementById('sample_x_drop');
+
+        var dum_option2 = document.createElement('option');
+        dum_option2.textContent = "Select a Y element";
+        dum_option2.value = "";
+        dum_option2.disabled = true;
+        dum_option2.selected = true;
+
+        sx_dropdown.add(dum_option2)
 
         for (var i = 0; i < sx_options.length; i++) {
           var option = document.createElement('option');
