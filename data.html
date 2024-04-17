@@ -39,97 +39,20 @@
                 
             </div>
 
+            <div class ="api_display">
 
-
-            <div id="data_display">
-
-                <div id = "set_selection">
-
-                    <h2 id = "selection_header">Select a Dataset to explore from the Sanger API:</h2>
-
-                    <select id = "option_drop" onchange="optionSelected()">
-                        <option value="" disabled selected>Select an option</option>
-                        <option value="patient">Patients</option>
-                        <option value="sample">Samples</option>
-                    </select>
-
+                <div class="api_link" onclick = "window.location.href = 'sanger_data.html';" style="cursor: pointer;">
+                    <h1>Sanger Data</h1>
+                    <p>Sanger API provides access cell model information and associated datasets.</p>
                 </div>
 
-                <button id = "reset_btn" style="display:none" onclick = "reset()">
-                    Back to DataSet Selection
-                </button>
-
-                <div id="patient_data_container" style= "display:none">
-
-                    <h2 class = "data_header">Explore Information about Patient Data:</h2>
-
-                    <label for="valueDropdown" class = "option_label">Select Y axis:</label>
-                    <br>
-                    <select id="x_drop" onchange="xSelected()"></select>
-                    <br><br>
-                    <label for="valueDropdown" class = "option_label">Select Value for Y axis:</label>
-                    <br>
-                    <select id="x_val_drop"></select>
-                    <br><br>
-                    <label for="valueDropdown"class = "option_label">Select X axis:</label>
-                    <br>
-                    <select id="y_drop"></select>
-                    <br><br>
-
-                    <button id = "render_btn" onclick = "generate()">Render</button>
-
-                    <br><br>
-
-                    <button id = "more_info" style="display:none" onclick = "sample_patients()">See Sample Information for this group</button>
-                    <br><br>
-
-                    <div id = "sample_info_container" style="display:none">
-
-                        <label for="sx_drop" class = "option_label">Select Y axis for Sample Information:</label>
-                        <br>
-                        <select id="sx_drop" onchange="sxSelected()"></select>
-                        <br><br>
-                        <label for="sx_val_drop" class = "option_label">Select Value for Y axis:</label>
-                        <br>
-                        <select id="sx_val_drop"></select>
-                        <br><br>
-
-                        <!-- for this we would also need to add a portion to have a value for the x axis -->
-
-                        <button id = "s_render_btn" onclick = "sp_generate()">Render for Samples</button>
-
-                    </div>
-
-
-                    <div id="data_graphs"></div>
-                    <div id="sample_graphs"></div>
-
+                <div class = "api_link">
+                    <h1>GDC Data</h1>
+                    <p>THIS IS GDC API</p>
                 </div>
+                
+            </div>
 
-                <div id = "sample_data_container" style= "display:none">
-
-                    <h2 class = "data_header">Explore Information about Sample Data:</h2>
-
-                    <label for="valueDropdown" class = "option_label">Select Y axis:</label>
-                    <br>
-                    <select id="sample_x_drop" onchange="sample_xSelected()"></select>
-                    <br><br>
-                    <label for="valueDropdown" class = "option_label">Select Value for Y axis:</label>
-                    <br>
-                    <select id="sample_x_val_drop"></select>
-                    <br><br>
-                    <label for="valueDropdown"class = "option_label">Select X axis:</label>
-                    <br>
-                    <select id="sample_y_drop"></select>
-                    <br><br>
-
-                    <button id = "render_btn" onclick = "sample_generate()">Render</button>
-
-                    <br><br>
-
-                    <div id="sample_data_graphs"></div>
-
-                </div>
                 
             </div>
 

@@ -33,7 +33,7 @@ async function fetchSampleData() {
 
 }
 
-function reset() {
+function resetForm() {
 
   // in this function we need to reset everything and so the options for the datasets once again
 
