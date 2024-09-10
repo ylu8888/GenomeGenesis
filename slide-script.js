@@ -25,7 +25,7 @@ function prevSlide() {
 }
 
 function autoAdvance() {
-  if (Date.now() - lastInteractionTime > 8000) {
+  if (Date.now() - lastInteractionTime > 10000) {
     nextSlide(); // Go to the next slide if no interaction for 8 seconds
   }
 }
