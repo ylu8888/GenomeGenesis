@@ -1,0 +1,16 @@
+.container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("images/md.jpg");
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container_2 {
+  height: 70vh;
+  position: relative;
+  margin-top: 0;
+  display: flex;
+}
