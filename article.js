@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    //const apiKey = 'dd693bc8-bf0d-4c64-8876-79a6ce6feae0';
-    const apiKey = '8cee710a-dd0d-44d4-851f-87b88a7b82bb'
+    
+    const apiKey = 'd40ed5bc-51d3-4e70-a169-2f411ce2a6fb'
 
     const name = document.querySelector('#article-name');
     const source = document.querySelector('#article-source');
@@ -77,4 +77,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 });
+
+// const { getJson } = require("serpapi");
+
+// document.addEventListener('DOMContentLoaded', () => {
+    
+
+//     document.querySelector('.search-form').onsubmit = async (event) => {
+//         event.preventDefault();
+
+//         var articleName = document.querySelector('#search-bar').value;
+
+//         if(articleName == ''){
+//            // name.innerHTML = (`Enter a valid article title`);
+//             return;
+//         }
+
+//         try {
+//             const response = await fetch(`https://serpapi.com/search?q=${encodeURIComponent(articleName)}&engine=google_scholar&api_key=d2916117f08364276db8184cad30209e1d56623f7e1445aa8df2d1fc27f0e759`);
+//             const json = await response.json();
+//             console.log(json);
+            
+//         } catch (error) {
+//             console.error('Error fetching data:', error);
+//         }
+       
+
+
+//     }
+
+
+// });
 

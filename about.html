@@ -7,6 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content ="width=device-width, initial-scale=1.0">
     </head>
+    <!-- hello -->
 
     <body>
         <div class="container">
@@ -15,8 +16,12 @@
                     <img id="logo" src="images/logo.png">
 
                     <form class="search-form">
-                        <input id="search-bar" type="text" placeholder="Search . . .">
+                        <input id="search-bar" type="text" placeholder="Search for Articles..." >
+                        <button id="search-button" type="submit">Go</button>
+                        
                     </form>
+
+                    
 
                     
 
@@ -33,23 +38,88 @@
                 <a href="about.html" class = "navbar-div"> About </a>
                 <a href="data.html" class = "navbar-div"> Data </a>
                 <a href="research.html" class = "navbar-div"> Research </a>
-                <a href="Quiz.html" class = "navbar-div"> Quiz </a>
+                <a href="quiz.html" class = "navbar-div"> Quiz </a>
                 <a href="contact.html" class = "navbar-div"> Contact </a>
                 
             </div>
 
+
             <div class="display">
-                
-                <p id="about-img">
-                   <span id="about-us">About Us</span>
-                    <br></br>
-                    Genome Genesis is a tool for exploring statistical data related to cancer. It is dedicated to providing up to date information and analytics regarding the relationships between cancer and age, gender, lifestyles, drinking habits, etc. 
-                    This website was created by the WebGenomics VIP Team at Stony Brook University in 2023. The team is based in New York and consists of Aadith Samala, Yang Lu, and Brian Park. We hope you enjoy and learn a lot about these interesting cancer data statistics :)
-                </p>
-                <img id="cancer" src="images/cancercells.png">
+                <div class = "slide">
+                    <p id="about-img">Research in Context:
+                        <br></br>
+                        Exploring approaches to the diagnosis of cancer and representing statistical data
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <button id="prevButton" onclick="prevSlide()">Prev</button>
+                        <button id="nextButton" onclick="nextSlide()">Next</button>
+                        
+                    </p>
+                    <img class="dna" src="images/Designer.png">
+                </div>
+                <div class = "slide">
+                    <p id="about-img">Research in Context:
+                        <br></br>
+                        Exploring approaches to the diagnosis of cancer and representing statistical data
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <button id="prevButton" onclick="prevSlide()">Prev</button>
+                        <button id="nextButton" onclick="nextSlide()">Next</button>
+                        
+                    </p>
+                    <img class="dna" src="images/cancercells2.jpg">
+                </div>
+                <div class = "slide">
+                    <p id="about-img">Research in Context:
+                        <br></br>
+                        Exploring approaches to the diagnosis of cancer and representing statistical data
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <button id="prevButton" onclick="prevSlide()">Prev</button>
+                        <button id="nextButton" onclick="nextSlide()">Next</button>
+                    </p>
+                    <img class="dna" src="images/cancercells.png">
+                </div>
             </div>
 
+           <!-- <div class="about-us">
+            <h4 id="undertitle">A tool for exploring cancer data from the Sanger API</h4>
+            <p>Explore different data representations of cancer from tumor samples. This app utilizes the Sanger API and Plotly to enable data visualizations and analysis of data involving different cancers. </p>
+           </div> -->
+           
+            <div id="articles"><h1>Articles</h1></div>
+            <div class="articles-div">
+                
+                <div class="articles-api">
+                    <a id="anchor"><img id="image" src=""></a>
+                    <p id="article-name"></p>
+                    <p id="article-source"></p>
+                    <p id="description"></p>
+                </div>
 
+                <div class="articles-api">
+                    <a id="anchor2" ><img id="image2" src=""></a>
+                    <p id="article-name2"></p>
+                    <p id="article-source2"></p>
+                    <p id="description2"></p>
+                </div>
+
+                <div class="articles-api">
+                    <a id="anchor3" ><img id="image3" src=""></a>
+                    <p id="article-name3"></p>
+                    <p id="article-source3"></p>
+                    <!-- <p id="description3"></p> -->
+                </div>
+                
+            </div>
+      
+
+            <script src="slide-script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+            <script src="article.js"></script>
 
         </div>
     </body>

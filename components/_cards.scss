@@ -1,0 +1,30 @@
+@mixin cards {
+  display: flex;
+  height: 20vh;
+  width: 15%;
+  background-color: $card_color;
+  color: $nav_page_color;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.card-1 {
+  @include cards;
+  margin-right: 30px;
+}
+.card-2 {
+  @include cards;
+  margin-right: 30px;
+}
+.card-3 {
+  @include cards;
+  margin-right: 30px;
+}
+.card-4 {
+  @include cards;
+  margin-right: 30px;
+}
+.card-5 {
+  @include cards;
+}

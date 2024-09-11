@@ -1,0 +1,39 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  height: 15vh;
+  position: fixed;
+  width: 100%;
+
+  .logo {
+    margin-left: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+
+    #logo_id {
+      height: 75px;
+    }
+  }
+
+  .pages {
+    #home_page {
+      color: $nav_page_color;
+    }
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 20px;
+    width: 50%;
+
+    a {
+      text-decoration: none;
+      color: white;
+      margin-left: 40px;
+    }
+  }
+}

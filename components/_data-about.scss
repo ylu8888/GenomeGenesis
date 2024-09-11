@@ -1,0 +1,123 @@
+.data_paragraph {
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: $heading_color;
+  }
+  #gene_title {
+    margin-top: 20px;
+  }
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 600px;
+    font-size: 24px;
+  }
+  #gene_paragraph {
+    margin-top: 30px;
+  }
+  /* From Uiverse.io by barisdogansutcu */
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: #7e97b8;
+    background-color: #e0e8ef;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: rgba(255, 255, 255, 0.333);
+    border-radius: 40px 40px 40px 40px;
+    margin-top: 15px;
+    padding: 16px 30px 16px 0px;
+    transform: translate(0px, 0px) rotate(0deg);
+    transition: 0.2s;
+    box-shadow: -4px -2px 16px 0px #ffffff,
+      4px 2px 16px 0px rgb(95 157 231 / 48%);
+  }
+
+  button:hover {
+    color: #516d91;
+    background-color: #e5edf5;
+    box-shadow: -2px -1px 8px 0px #ffffff, 2px 1px 8px 0px rgb(95 157 231 / 48%);
+  }
+
+  button:active {
+    box-shadow: none;
+  }
+}
+
+.data_slideshow {
+  display: flex;
+  width: 50%;
+  height: 70vh;
+  justify-content: center;
+  align-items: center;
+
+  .slide {
+    opacity: 0;
+    display: none;
+    transition: opacity 0.5s ease;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    img {
+      width: 600px;
+      height: 450px;
+    }
+  }
+
+  .slide.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  @mixin slide-buttons {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 205px;
+  }
+
+  #nextButton {
+    @include slide-buttons;
+    left: 550px;
+  }
+
+  #prevButton {
+    @include slide-buttons;
+    right: 550px;
+  }
+
+  #prevButton:hover,
+  #nextButton:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Hover effect */
+    color: #333;
+  }
+}
