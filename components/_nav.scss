@@ -7,6 +7,9 @@
   height: 15vh;
   position: fixed;
   width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 1000; // Ensure it's on top of other elements
 
   .logo {
     margin-left: 20px;
@@ -14,16 +17,13 @@
     justify-content: flex-start;
     align-items: center;
     width: 50%;
-
     #logo_id {
       height: 75px;
+      transition: height 0.3s ease;
     }
   }
 
   .pages {
-    #home_page {
-      color: $nav_page_color;
-    }
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -34,6 +34,20 @@
       text-decoration: none;
       color: white;
       margin-left: 40px;
+      transition: color 0.3s ease;
+      &.active {
+        color: $nav_page_color;
+      }
+      &:hover {
+        color: $nav_page_color;
+      }
+    }
+  }
+
+  &.scrolled {
+    background-color: rgb(2, 66, 101);
+    .logo #logo_id {
+      height: 80px;
     }
   }
 }

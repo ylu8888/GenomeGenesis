@@ -54,6 +54,9 @@ footer {
   height: 15vh;
   position: fixed;
   width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
 }
 .nav .logo {
   margin-left: 20px;
@@ -64,6 +67,7 @@ footer {
 }
 .nav .logo #logo_id {
   height: 75px;
+  transition: height 0.3s ease;
 }
 .nav .pages {
   display: flex;
@@ -72,13 +76,23 @@ footer {
   margin-right: 20px;
   width: 50%;
 }
-.nav .pages #home_page {
-  color: #3cb4ef;
-}
 .nav .pages a {
   text-decoration: none;
   color: white;
   margin-left: 40px;
+  transition: color 0.3s ease;
+}
+.nav .pages a.active {
+  color: #3cb4ef;
+}
+.nav .pages a:hover {
+  color: #3cb4ef;
+}
+.nav.scrolled {
+  background-color: rgb(2, 66, 101);
+}
+.nav.scrolled .logo #logo_id {
+  height: 80px;
 }
 
 .intro {
