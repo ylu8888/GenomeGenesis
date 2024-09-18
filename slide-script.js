@@ -1,3 +1,13 @@
+const { getJson } = require("serpapi");
+
+getJson({
+  engine: "google_scholar",
+  q: "biology",
+  api_key: "d2916117f08364276db8184cad30209e1d56623f7e1445aa8df2d1fc27f0e759"
+}, (json) => {
+  console.log(json["organic_results"]);
+});
+
 let slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
 let lastInteractionTime = Date.now();
@@ -35,3 +45,33 @@ showSlide(currentSlide);
 
 // Start auto-advance timer
 setInterval(autoAdvance, 1000); // Check every second for user interaction
+
+
+//SCROLLING FOR THE NAVBAR STUFF
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.nav');
+  
+  if (window.scrollY > 700) {
+      navbar.classList.add('navbar-scrolled');
+  } else {
+      navbar.classList.remove('navbar-scrolled');
+  }
+});
+
+//START OF GOOGLE SCHOLAR API 
+const search = document.querySelector('#search-button');
+
+document.querySelector('.searchform').onsubmit = (event) => {
+  event.preventDefault(); //prevent page refresh on form submission
+  const input = document.querySelector('.search-box input').value; //get user search input
+
+  if(input === ''){ //if nothing is in search bar just return
+      return;
+  }
+
+  console.log(input)
+
+}
+
+//END OF GOOGLE SCHOLAR API
+

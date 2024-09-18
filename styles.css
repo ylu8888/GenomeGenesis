@@ -54,6 +54,20 @@ footer {
   height: 15vh;
   position: fixed;
   width: 100%;
+
+}
+
+.navbar-scrolled {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 20px;
+  height: 15vh;
+  position: fixed;
+  width: 100%;
+  background-color: #14b5d5;
+  color: white;
 }
 .nav .logo {
   margin-left: 20px;
@@ -79,6 +93,16 @@ footer {
   text-decoration: none;
   color: white;
   margin-left: 40px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 10px;
+
+}
+
+/* Hover effect for nav links/buttons */
+.nav .pages a:hover {
+  color: rgb(2, 250, 246);
+  background-color: rgb(21, 107, 177);
+  border-radius: 10px;
 }
 
 .intro {
@@ -430,3 +454,8 @@ footer {
 .dictionary_title .learn_more_btn:hover::before {
   transform: translateX(0);
 }/*# sourceMappingURL=styles.css.map */
+
+#search-button{
+  height: 20px;
+  width: 80px;
+}
