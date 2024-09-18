@@ -36,6 +36,22 @@
   margin-top: 40px;
 }
 
+.container_a {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/nci.jpg");
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container_a_2 {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 footer {
   height: 20vh;
   margin-top: 100px;
@@ -443,4 +459,30 @@ footer {
 }
 .dictionary_title .learn_more_btn:hover::before {
   transform: translateX(0);
+}
+
+.title_about {
+  display: flex;
+  font-size: 75px;
+  color: white;
+  align-items: start;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 10vh;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.about_p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.about_p p {
+  margin-top: 20px;
+}
+.about_p h1 {
+  font-size: 60px;
+  font-weight: bold;
+  color: #0089ad;
 }/*# sourceMappingURL=styles.css.map */
