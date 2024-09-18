@@ -1,11 +1,15 @@
-.container {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("images/md.jpg");
+@mixin bg-image {
   height: 100vh;
   position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("images/md.jpg");
+  @include bg-image;
 }
 
 .container_2 {
@@ -29,6 +33,19 @@
   display: flex;
   width: 100%;
   margin-top: 40px;
+}
+
+.container_a {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("images/nci.jpg");
+  @include bg-image;
+}
+
+.container_a_2 {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {

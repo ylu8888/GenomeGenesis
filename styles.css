@@ -36,6 +36,22 @@
   margin-top: 40px;
 }
 
+.container_a {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/nci.jpg");
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container_a_2 {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 footer {
   height: 20vh;
   margin-top: 100px;
@@ -54,20 +70,9 @@ footer {
   height: 15vh;
   position: fixed;
   width: 100%;
-
-}
-
-.navbar-scrolled {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 20px;
-  height: 15vh;
-  position: fixed;
-  width: 100%;
-  background-color: #14b5d5;
-  color: white;
+  background-color: transparent;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+  z-index: 1000;
 }
 .nav .logo {
   margin-left: 20px;
@@ -78,6 +83,7 @@ footer {
 }
 .nav .logo #logo_id {
   height: 75px;
+  transition: height 0.3s ease;
 }
 .nav .pages {
   display: flex;
@@ -86,23 +92,23 @@ footer {
   margin-right: 20px;
   width: 50%;
 }
-.nav .pages #home_page {
-  color: #3cb4ef;
-}
 .nav .pages a {
   text-decoration: none;
   color: white;
   margin-left: 40px;
-  transition: color 0.3s ease, background-color 0.3s ease;
-  padding: 10px;
-
+  transition: color 0.3s ease;
 }
-
-/* Hover effect for nav links/buttons */
+.nav .pages a.active {
+  color: #3cb4ef;
+}
 .nav .pages a:hover {
-  color: rgb(2, 250, 246);
-  background-color: rgb(21, 107, 177);
-  border-radius: 10px;
+  color: #3cb4ef;
+}
+.nav.scrolled {
+  background-color: rgb(2, 66, 101);
+}
+.nav.scrolled .logo #logo_id {
+  height: 80px;
 }
 
 .intro {
@@ -453,9 +459,49 @@ footer {
 }
 .dictionary_title .learn_more_btn:hover::before {
   transform: translateX(0);
+}
+
+.title_about {
+  display: flex;
+  font-size: 75px;
+  color: white;
+  align-items: start;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 10vh;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.about_p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 60px;
+}
+.about_p p {
+  /* margin-top: 20px; */
+}
+.about_p h1 {
+  font-size: 60px;
+  font-weight: bold;
+  color: #0089ad;
 }/*# sourceMappingURL=styles.css.map */
 
-#search-button{
-  height: 20px;
-  width: 80px;
+.about-para{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  font-size: 20px;
+}
+
+.cont3-img{
+  height:70px;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+
 }
