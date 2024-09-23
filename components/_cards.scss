@@ -7,24 +7,26 @@
   justify-content: center;
   align-items: center;
   font-size: 20px;
+  .cont3-img {
+    height: 70px;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .card-1 {
   @include cards;
-  margin-right: 30px;
+  margin-right: 70px;
 }
 .card-2 {
   @include cards;
-  margin-right: 30px;
+  margin-right: 70px;
 }
 .card-3 {
   @include cards;
-  margin-right: 30px;
+  margin-right: 70px;
 }
 .card-4 {
-  @include cards;
-  margin-right: 30px;
-}
-.card-5 {
   @include cards;
 }
