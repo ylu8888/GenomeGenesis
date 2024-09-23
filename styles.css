@@ -301,12 +301,13 @@ footer {
 .card-1 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
   margin-right: 70px;
 }
 .card-1 .cont3-img {
@@ -319,12 +320,13 @@ footer {
 .card-2 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
   margin-right: 70px;
 }
 .card-2 .cont3-img {
@@ -337,12 +339,13 @@ footer {
 .card-3 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
   margin-right: 70px;
 }
 .card-3 .cont3-img {
@@ -355,12 +358,13 @@ footer {
 .card-4 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }
 .card-4 .cont3-img {
   height: 70px;

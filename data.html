@@ -1,63 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Genome Genesis </title>
-        <link rel="stylesheet" href="styles.css">
-        <meta charset="UTF-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.plot.ly/plotly-2.29.1.min.js" charset="utf-8"></script>
-    </head>
+  <head>
+    <title>Genome Genesis</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-    <body>
-        <div class="container">
-            <div class="title-container">
-                <div class="subtitle">
-                    <img id="logo" src="images/logo.png">
-
-                    <form class="search-form">
-                        <input id="search-bar" type="text" placeholder="Search . . .">
-                    </form>
-
-                    
-
-                </div>
-                <!-- <h3>WebGenomics Team at Stony Brook University</h3> -->
-                
-               
-          
-            </div>
-
-            <div class="navbar">
-
-                <a href="index.html" class = "navbar-div"> Home </a>
-                <a href="about.html" class = "navbar-div"> About </a>
-                <a href="data.html" class = "navbar-div"> Data </a>
-                <a href="research.html" class = "navbar-div"> Research </a>
-                <a href="news.html" class = "navbar-div"> News </a>
-                <a href="contact.html" class = "navbar-div"> Contact </a>
-                
-            </div>
-
-            <div class ="api_display">
-
-                <div class="api_link" onclick = "window.location.href = 'sanger_data.html';" style="cursor: pointer;">
-                    <h1>Sanger Data</h1>
-                    <p>Sanger API provides access cell model information and associated datasets.</p>
-                </div>
-
-                <div class = "api_link">
-                    <h1>GDC Data</h1>
-                    <p>THIS IS GDC API</p>
-                </div>
-                
-            </div>
-
-                
-            </div>
-
+  <body>
+    <div class="container_a">
+      <nav class="nav">
+        <div class="logo">
+          <img id="logo_id" src="images/logo2.png" />
         </div>
-        <script src="script.js"></script>
+        <div class="pages">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="data.html" class="active">Data</a>
+          <a href="#">Team</a>
+          <a href="#">Blog</a>
+        </div>
+      </nav>
+      <div class="intro">
+        <div class="title_about">DATA</div>
+      </div>
+    </div>
 
-    </body>
+    <footer><h1>FOOTER UNDER CONSTRUCTION</h1></footer>
+    <script src="nav-bar.js"></script>
+  </body>
 </html>

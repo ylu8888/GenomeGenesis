@@ -1,3 +1,64 @@
+async function fetchSomeGenes() {
+  try {
+    const response = await fetch("https://api.gdc.cancer.gov/genes");
+    if (!response.ok) throw new Error("Could not fetch resources");
+    const data = await response.json();
+    return {
+      total: data.data.pagination.total,
+      id: "genes_counter",
+      name: "Genes",
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function fetchSomeCases() {
+  try {
+    const response = await fetch("https://api.gdc.cancer.gov/cases");
+    if (!response.ok) throw new Error("Could not fetch resources");
+    const data = await response.json();
+    return {
+      total: data.data.pagination.total,
+      id: "cases_counter",
+      name: "Cases",
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function fetchSomeFiles() {
+  try {
+    const response = await fetch("https://api.gdc.cancer.gov/files");
+    if (!response.ok) throw new Error("Could not fetch resources");
+    const data = await response.json();
+    return {
+      total: data.data.pagination.total,
+      id: "files_counter",
+      name: "Files",
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function fetchSomeMutations() {
+  try {
+    const response = await fetch("https://api.gdc.cancer.gov/ssms");
+    if (!response.ok) throw new Error("Could not fetch resources");
+    const data = await response.json();
+    return {
+      total: data.data.pagination.total,
+      id: "mutations_counter",
+      name: "Mutations",
+    };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+// Function for animating the counter
 function animateCounter(target, id, name) {
   let current = 0;
   const increment = target / 100; // Adjust speed here
@@ -8,7 +69,6 @@ function animateCounter(target, id, name) {
     if (current < target) {
       counterElement.innerText = `${Math.floor(current)} ${name}`;
       requestAnimationFrame(updateCounter);
-      console.log(current);
     } else {
       counterElement.innerText = `${target} ${name}`;
     }
@@ -17,90 +77,46 @@ function animateCounter(target, id, name) {
   updateCounter();
 }
 
-async function fetchAllGenes() {
+// Wait for all fetch functions to complete
+async function fetchAllData() {
   try {
-    const response = await fetch("https://api.gdc.cancer.gov/genes?size=22534");
+    // Use Promise.all to wait for all fetch functions to complete
+    const [genesData, casesData, filesData, mutationsData] = await Promise.all([
+      fetchSomeGenes(),
+      fetchSomeCases(),
+      fetchSomeFiles(),
+      fetchSomeMutations(),
+    ]);
 
-    if (!response.ok) {
-      throw new Error("Could not fetch resources");
-    }
-
-    const data = await response.json();
-    const totalCases = data.meta.pagination.total;
-    const name = "Genes";
-    const id = "genes_counter";
-
-    // Animate the counter
-    animateCounter(totalCases, id, name);
+    // Start counter animations after all data is fetched
+    animateCounter(genesData.total, genesData.id, genesData.name);
+    animateCounter(casesData.total, casesData.id, casesData.name);
+    animateCounter(filesData.total, filesData.id, filesData.name);
+    animateCounter(mutationsData.total, mutationsData.id, mutationsData.name);
   } catch (error) {
-    console.log(error);
+    console.log("Error fetching data:", error);
   }
 }
 
-async function fetchAllCases() {
-  try {
-    const response = await fetch("https://api.gdc.cancer.gov/cases?size=44736");
+// Start fetching data when the counters are visible in the viewport
+const observerOptions = {
+  root: null, // Use the viewport as the root
+  threshold: 0.5, // Trigger when at least 50% of the element is visible
+};
 
-    if (!response.ok) {
-      throw new Error("Could not fetch resources");
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      fetchAllData(); // Fetch all data when the counters enter the viewport
+      observer.unobserve(entry.target); // Stop observing after the data is fetched
     }
+  });
+};
 
-    const data = await response.json();
-    const totalCases = data.meta.pagination.total;
-    const name = "Cases";
-    const id = "cases_counter";
+// Create the observer instance
+const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Animate the counter
-    animateCounter(totalCases, id, name);
-  } catch (error) {
-    console.log(error);
-  }
-}
-async function fetchAllFiles() {
-  try {
-    const response = await fetch(
-      "https://api.gdc.cancer.gov/files?size=1,027,517"
-    );
-
-    if (!response.ok) {
-      throw new Error("Could not fetch resources");
-    }
-
-    const data = await response.json();
-    const totalCases = data.meta.pagination.total;
-    const name = "Files";
-    const id = "files_counter";
-
-    // Animate the counter
-    animateCounter(totalCases, id, name);
-  } catch (error) {
-    console.log(error);
-  }
-}
-async function fetchAllMutations() {
-  try {
-    const response = await fetch(
-      "https://api.gdc.cancer.gov/ssms?size=2,940,240"
-    );
-
-    if (!response.ok) {
-      throw new Error("Could not fetch resources");
-    }
-
-    const data = await response.json();
-    const totalCases = data.meta.pagination.total;
-    const name = "Mutations";
-    const id = "mutations_counter";
-
-    // Animate the counter
-    animateCounter(totalCases, id, name);
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-// Call the function to start fetching data
-fetchAllGenes();
-fetchAllCases();
-fetchAllFiles();
-fetchAllMutations();
+// Observe each counter's parent card element
+document.querySelectorAll(".card").forEach((cardElement) => {
+  observer.observe(cardElement);
+});
