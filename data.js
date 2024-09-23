@@ -61,7 +61,13 @@ async function fetchSomeMutations() {
 // Function for animating the counter
 function animateCounter(target, id, name) {
   let current = 0;
-  const increment = target / 100; // Adjust speed here
+  let increment = 0;
+  if (target > 2000000) {
+    increment = target / 400;
+  } else if (target > 1000000) increment = target / 300;
+  else if (target > 40000) {
+    increment = target / 200;
+  } else increment = target / 100;
   const counterElement = document.getElementById(id);
 
   const updateCounter = () => {
