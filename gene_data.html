@@ -22,10 +22,26 @@
       </div>
     </nav>
     <div class="container_gd">
-      <div class="sect-one"></div>
-    </div>
+      <div class="sect-one">
+          <div class="left-column">
+              <div class="dropdown">
+                  <input type="text" id="searchInput" placeholder="Search Gene IDs..." onkeyup="filterFunction()">
+                  <div id="dropdownList" class="dropdown-content"></div>
+              </div>
+              <div id="geneInfo" class="gene-info">
+                  <h3>Gene Information</h3>
+                  <div id="infoContent"></div>
+              </div>
+          </div>
+          <div id="geneDescription" class="gene-description">
+              <h3>Description</h3>
+              <div id="descriptionContent"></div>
+          </div>
+      </div>
+  </div>
 
     <footer><h1>FOOTER UNDER CONSTRUCTION</h1></footer>
+    <script src="gene.js"></script>
     <script src="nav-bar.js"></script>
   </body>
 </html>

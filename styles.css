@@ -663,11 +663,70 @@ footer {
 }
 
 .sect-one {
-  height: 60vh;
+  height: 60vh; /* This controls the overall height of the section */
   position: relative;
   width: 95%;
   margin-top: 5vh;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  overflow: hidden; /* Ensure the content doesn't overflow the container */
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column; /* Stack search bar and gene info vertically */
+  width: 40%; /* Adjust width for left content */
+}
+
+.gene-info {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 20px; /* Add space between dropdown and info */
+  width: 100%; /* Full width of the left column */
+}
+
+.gene-description {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 40%; /* Adjust width for the description section */
+  align-self: flex-start; /* Align the description to the top */
+  max-height: 100%; /* Prevent the description from exceeding the container height */
+  overflow-y: auto; /* Enable scrolling if the content is too large */
+}
+
+.dropdown {
+  position: relative;
+  width: 100%; /* Ensure the dropdown width is 100% of its parent container */
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; /* Prevent padding from increasing the total width */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%; /* Match the dropdown content width to the parent (search input) */
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+  box-sizing: border-box; /* Ensure the border doesn't affect the total width */
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
 }/*# sourceMappingURL=styles.css.map */
