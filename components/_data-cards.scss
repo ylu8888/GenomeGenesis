@@ -1,0 +1,75 @@
+@mixin cards {
+  display: flex;
+  height: 60vh;
+  width: 95%;
+  margin-bottom: 5vh;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin para {
+  color: black;
+  font-size: 30px;
+  h3 {
+    color: gray;
+    font-weight: lighter;
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+@mixin des {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 50%;
+  @include para;
+}
+.img {
+  box-shadow: 0 4px 8px rgb(116, 173, 243, 2);
+  border-radius: 5%;
+  height: 90%;
+  width: 90%;
+}
+.img_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 50%;
+}
+.gene_card {
+  @include cards;
+  z-index: 1;
+
+  ._des {
+    @include des;
+  }
+}
+.case_card {
+  @include cards;
+  z-index: 2;
+  ._des {
+    @include des;
+  }
+}
+.file_card {
+  @include cards;
+  z-index: 3;
+  ._des {
+    @include des;
+  }
+}
+.mutation_card {
+  @include cards;
+  z-index: 4;
+  margin-bottom: -5vh;
+  ._des {
+    @include des;
+  }
+}
