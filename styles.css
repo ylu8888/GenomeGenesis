@@ -73,6 +73,10 @@
 
 .container_gd {
   height: 100vh;
+  display: flex;
+  background-color: skyblue;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
@@ -549,7 +553,6 @@ footer {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   background-color: white;
-  display: flex;
   flex-direction: row;
   z-index: 1;
 }
@@ -579,7 +582,6 @@ footer {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   background-color: white;
-  display: flex;
   flex-direction: row;
   z-index: 2;
 }
@@ -609,7 +611,6 @@ footer {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   background-color: white;
-  display: flex;
   flex-direction: row;
   z-index: 3;
 }
@@ -639,7 +640,6 @@ footer {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
   border-radius: 20px;
   background-color: white;
-  display: flex;
   flex-direction: row;
   z-index: 4;
   margin-bottom: -5vh;
@@ -660,4 +660,14 @@ footer {
   font-size: 20px;
   margin-top: 60px;
   margin-bottom: 60px;
+}
+
+.sect-one {
+  height: 60vh;
+  position: relative;
+  width: 95%;
+  margin-top: 5vh;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: white;
 }/*# sourceMappingURL=styles.css.map */

@@ -66,6 +66,10 @@
 
 .container_gd {
   height: 100vh;
+  display: flex;
+  background-color: skyblue;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
