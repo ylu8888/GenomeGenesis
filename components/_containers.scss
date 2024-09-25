@@ -48,6 +48,30 @@
   justify-content: center;
 }
 
+.container_d {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("images/chart.jpg");
+  @include bg-image;
+}
+
+.container_d_2 {
+  height: 260vh;
+  position: relative;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_gd {
+  height: 100vh;
+  display: flex;
+  background-color: skyblue;
+  justify-content: center;
+  align-items: center;
+}
+
 footer {
   height: 20vh;
   margin-top: 100px;

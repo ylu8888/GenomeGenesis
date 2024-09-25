@@ -17,17 +17,17 @@
         <div class="pages">
           <a href="index.html" class="active">Home</a>
           <a href="about.html">About</a>
+          <a href="data.html">Data</a>
           <a href="#">Team</a>
           <a href="#">Blog</a>
-          <a href="#">what</a>
         </div>
       </nav>
       <div class="intro">
         <div class="title">Genome <span id="title_span"> DATA </span></div>
-        <div class="sub-title"> 
+        <div class="sub-title">
           Explore different data representations of cancer from tumor samples
         </div>
-        <a class="learn_more_btn" href="#">Learn More</a>
+        <a class="learn_more_btn" href="about.html">Learn More</a>
       </div>
     </div>
 
@@ -44,7 +44,7 @@
           can visualize gene interactions and how specific mutations correlate
           with different types of cancer.
         </p>
-        <button>
+        <button onclick="window.location.href='data.html'">
           <svg
             viewBox="0 0 24 24"
             width="24"
@@ -90,32 +90,37 @@
       </div>
     </div>
     <div class="container_3">
-      <div class="card card-1">Cases
+      <div class="card card-1">
         <img class="cont3-img" src="images/cases.png" />
+        <div id="cases_counter">0 Cases</div>
       </div>
-      <div class="card card-2">Files
+      <div class="card card-2">
         <img class="cont3-img" src="images/files.png" />
+        <div id="files_counter">0 Files</div>
       </div>
-      <div class="card card-3">Genes
+      <div class="card card-3">
         <img class="cont3-img" src="images/genes.png" />
+        <div id="genes_counter">0 Genes</div>
       </div>
-      <div class="card card-4">Mutations
+      <div class="card card-4">
         <img class="cont3-img" src="images/mutations.png" />
+        <div id="mutations_counter">0 Mutations</div>
       </div>
-      
     </div>
     <div class="container_4">
       <div class="article_title">
         <h1>Articles</h1>
         <p>
-          Read medical science articles to learn the latest updates on cancer research
+          Read medical science articles to learn the latest updates on cancer
+          research
         </p>
         <a class="learn_more_btn" href="#">Learn More</a>
       </div>
       <div class="dictionary_title">
         <h1>Dictionary</h1>
         <p>
-          Look up terms and vocabulary words related to cancer and medical science
+          Look up terms and vocabulary words related to cancer and medical
+          science
         </p>
         <a class="learn_more_btn" href="#">Learn More</a>
       </div>
@@ -128,5 +133,6 @@
   
     <script src="nav-bar.js"></script>
     <script src="slide-script.js"></script>
+    <script src="data.js"></script>
   </body>
 </html>

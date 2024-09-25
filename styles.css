@@ -52,6 +52,33 @@
   justify-content: center;
 }
 
+.container_d {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/chart.jpg");
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container_d_2 {
+  height: 260vh;
+  position: relative;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_gd {
+  height: 100vh;
+  display: flex;
+  background-color: skyblue;
+  justify-content: center;
+  align-items: center;
+}
+
 footer {
   height: 20vh;
   margin-top: 100px;
@@ -301,60 +328,76 @@ footer {
 .card-1 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  margin-right: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 70px;
+}
+.card-1 .cont3-img {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-2 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  margin-right: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 70px;
+}
+.card-2 .cont3-img {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-3 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  margin-right: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  margin-right: 70px;
+}
+.card-3 .cont3-img {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-4 {
   display: flex;
   height: 20vh;
-  width: 15%;
+  width: 20%;
   background-color: #003a5d;
   color: #3cb4ef;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  margin-right: 30px;
+  font-size: 25px;
+  font-weight: bold;
 }
-
-.card-5 {
+.card-4 .cont3-img {
+  height: 70px;
+  width: 70px;
   display: flex;
-  height: 20vh;
-  width: 15%;
-  background-color: #003a5d;
-  color: #3cb4ef;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
+  flex-direction: column;
 }
 
 .article_title {
@@ -477,31 +520,213 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 60px;
 }
 .about_p p {
-  /* margin-top: 20px; */
+  margin-top: 20px;
 }
 .about_p h1 {
   font-size: 60px;
   font-weight: bold;
   color: #0089ad;
-}/*# sourceMappingURL=styles.css.map */
+}
 
-.about-para{
+.img {
+  box-shadow: 0 4px 8px rgb(116, 173, 243);
+  border-radius: 5%;
+  height: 90%;
+  width: 90%;
+}
+
+.img_box {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  margin-left: 20%;
-  margin-right: 20%;
-  font-size: 20px;
+  height: 60vh;
+  width: 50%;
 }
 
-.cont3-img{
-  height:70px;
-  width: 70px;
+.gene_card {
+  display: flex;
+  height: 60vh;
+  width: 95%;
+  margin-bottom: 5vh;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: white;
+  flex-direction: row;
+  z-index: 1;
+}
+.gene_card ._des {
   display: flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 50%;
+  color: black;
+  font-size: 30px;
 }
+.gene_card ._des h3 {
+  color: gray;
+  font-weight: lighter;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.case_card {
+  display: flex;
+  height: 60vh;
+  width: 95%;
+  margin-bottom: 5vh;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: white;
+  flex-direction: row;
+  z-index: 2;
+}
+.case_card ._des {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 50%;
+  color: black;
+  font-size: 30px;
+}
+.case_card ._des h3 {
+  color: gray;
+  font-weight: lighter;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.file_card {
+  display: flex;
+  height: 60vh;
+  width: 95%;
+  margin-bottom: 5vh;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: white;
+  flex-direction: row;
+  z-index: 3;
+}
+.file_card ._des {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 50%;
+  color: black;
+  font-size: 30px;
+}
+.file_card ._des h3 {
+  color: gray;
+  font-weight: lighter;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.mutation_card {
+  display: flex;
+  height: 60vh;
+  width: 95%;
+  margin-bottom: 5vh;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: white;
+  flex-direction: row;
+  z-index: 4;
+  margin-bottom: -5vh;
+}
+.mutation_card ._des {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  width: 50%;
+  color: black;
+  font-size: 30px;
+}
+.mutation_card ._des h3 {
+  color: gray;
+  font-weight: lighter;
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.sect-one {
+  height: 60vh; /* This controls the overall height of the section */
+  position: relative;
+  width: 95%;
+  margin-top: 5vh;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  overflow: hidden; /* Ensure the content doesn't overflow the container */
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column; /* Stack search bar and gene info vertically */
+  width: 40%; /* Adjust width for left content */
+}
+
+.gene-info {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 20px; /* Add space between dropdown and info */
+  width: 100%; /* Full width of the left column */
+}
+
+.gene-description {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 40%; /* Adjust width for the description section */
+  align-self: flex-start; /* Align the description to the top */
+  max-height: 100%; /* Prevent the description from exceeding the container height */
+  overflow-y: auto; /* Enable scrolling if the content is too large */
+}
+
+.dropdown {
+  position: relative;
+  width: 100%; /* Ensure the dropdown width is 100% of its parent container */
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box; /* Prevent padding from increasing the total width */
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%; /* Match the dropdown content width to the parent (search input) */
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  z-index: 1;
+  box-sizing: border-box; /* Ensure the border doesn't affect the total width */
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f1f1f1;
+}/*# sourceMappingURL=styles.css.map */
