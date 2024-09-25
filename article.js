@@ -1,111 +1,66 @@
-
+//START OF GOOGLE SCHOLAR API 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    const apiKey = 'd40ed5bc-51d3-4e70-a169-2f411ce2a6fb'
 
-    const name = document.querySelector('#article-name');
-    const source = document.querySelector('#article-source');
-    //const description = document.querySelector('#description');
-    const img = document.querySelector('#image');
-    const anchor = document.querySelector('#anchor');
+    const apiKey = 'd2916117f08364276db8184cad30209e1d56623f7e1445aa8df2d1fc27f0e759'
 
-    const name2 = document.querySelector('#article-name2');
-    const source2 = document.querySelector('#article-source2');
-    //const description2 = document.querySelector('#description2');
-    const img2 = document.querySelector('#image2');
-    const anchor2 = document.querySelector('#anchor2');
-
-    const name3 = document.querySelector('#article-name3');
-    const source3 = document.querySelector('#article-source3');
-    //const description3 = document.querySelector('#description3');
-    const img3 = document.querySelector('#image3');
-    const anchor3 = document.querySelector('#anchor3');
+    const artList = document.querySelector('.article-display')
 
     document.querySelector('.search-form').onsubmit = (event) => {
-        event.preventDefault();
+    event.preventDefault(); //prevent page refresh on form submission
 
-        var articleName = document.querySelector('#search-bar').value;
+    const userInput = document.querySelector('.search-form input').value; //get user search input
 
-        if(articleName == ''){
-            name.innerHTML = (`Enter a valid article title`);
-            return;
+    if(userInput === ''){ //if nothing is in search bar just return
+        console.log('enter a valid input');
+    }
+
+    console.log('this is the input: ' + userInput)
+
+    //REMOVE ALL THE previous list children from the article list
+    while (artList.firstChild) {
+        artList.removeChild(artList.firstChild);
+    }
+
+    fetch(`https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json?engine=google_scholar&q=${userInput}&api_key=${apiKey}`)
+    .then(response => {
+        return response.json(); 
+    })
+    .then(data => { 
+        console.log('DATA INCOMING:', data);
+        
+        //loop through each article in the organic results
+        //append the newly created list item to display 
+        for(let i = 0; i < data.organic_results.length; i++){
+            console.log(data.organic_results[i].title)
+
+            const artItem = document.createElement('li')
+            artItem.style.display = 'flex';
+            artItem.style.justifyContent = 'space-between';
+            artItem.style.textAlign = 'center';
+            artItem.style.fontSize = '20px';
+
+            artItem.innerHTML = 
+            `<div style = "margin: 15px">
+                <p style="padding: 3px; font-weight: bold;">Title: ${data.organic_results[i].title}</p>
+                <p style="padding: 3px">Publisher: ${data.organic_results[i].publication_info.summary} </p>
+                Link: <a style="padding: 3px" href="${data.organic_results[i].link}" target="_blank" rel="noopener noreferrer">${data.organic_results[i].link}</a>
+                <p style="padding: 3px">Summary: ${data.organic_results[i].snippet} </p>
+            </div>`;
+
+            artList.appendChild(artItem)
         }
+
+        document.querySelector('.search-form input').value = ""; //clear the previous searches 
+
+    })
+    .catch(error => { 
+        console.error('WE GOT AN ERRORRRR:', error);
+    });
+
     
-       articleName = articleName.charAt(0).toUpperCase() + articleName.slice(1);
-       console.log('this the search input', articleName)
-
-       //const apiURL =`https://api.goperigon.com/v1/all?&topic=${articleName}&apiKey=${apiKey}`
-       //const apiURL =`https://api.goperigon.com/v1/all?&source=cnn.com&sortBy=date&apiKey=${apiKey}`
-      
-        const apiURL =`https://api.goperigon.com/v1/all?from=2015-02-26&q=${articleName}&sourceGroup=top100&language=en&apiKey=${apiKey}`
-        axios.get(apiURL)
-        .then((response) => {
-            console.log(response.data);
-
-            if(response.data == 'False'){
-                name.innerHTML = (`Enter a valid movie title`);
-                return;
-            }
-
-            console.log('this the url', response.data.articles[0].url)
-            name.innerHTML = (`${response.data.articles[0].title}`);
-            source.innerHTML = (`${response.data.articles[0].authorsByline}`);
-            img.src = (`${response.data.articles[0].imageUrl}`);
-            //description.innerHTML = (`${response.data.articles[0].description}`);
-            anchor.href = (`${response.data.articles[0].url}`);
-            
-
-            name2.innerHTML = (`${response.data.articles[1].title}`);
-            source2.innerHTML = (`${response.data.articles[1].authorsByline}`);
-            img2.src = (`${response.data.articles[1].imageUrl}`);
-           // description2.innerHTML = (`${response.data.articles[1].description}`);
-            anchor2.href = (`${response.data.articles[1].url}`);
-
-            name3.innerHTML = (`${response.data.articles[2].title}`);
-            source3.innerHTML = (`${response.data.articles[2].authorsByline}`);
-            img3.src = (`${response.data.articles[2].imageUrl}`);
-           // description3.innerHTML = (`${response.data.articles[2].description}`);
-            anchor3.href = (`${response.data.articles[2].url}`);
-
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-
 
     }
 
-
 });
 
-// const { getJson } = require("serpapi");
-
-// document.addEventListener('DOMContentLoaded', () => {
-    
-
-//     document.querySelector('.search-form').onsubmit = async (event) => {
-//         event.preventDefault();
-
-//         var articleName = document.querySelector('#search-bar').value;
-
-//         if(articleName == ''){
-//            // name.innerHTML = (`Enter a valid article title`);
-//             return;
-//         }
-
-//         try {
-//             const response = await fetch(`https://serpapi.com/search?q=${encodeURIComponent(articleName)}&engine=google_scholar&api_key=d2916117f08364276db8184cad30209e1d56623f7e1445aa8df2d1fc27f0e759`);
-//             const json = await response.json();
-//             console.log(json);
-            
-//         } catch (error) {
-//             console.error('Error fetching data:', error);
-//         }
-       
-
-
-//     }
-
-
-// });
-
+//END OF GOOGLE SCHOLAR API 

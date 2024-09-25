@@ -730,3 +730,25 @@ footer {
 .dropdown-item:hover {
   background-color: #f1f1f1;
 }/*# sourceMappingURL=styles.css.map */
+
+/* GOOGLE SCHOLARS API CSS START */
+
+.search-input{
+  border-radius: 10px;
+  height: 50px;
+  width: 500px;
+  text-align: center;
+  font-size: 18px;
+  margin-left: 30%;
+  margin-top: 5%;
+  
+}
+
+.search-btn{
+  border-radius: 10px;
+  height: 50px;
+  width: 50px;
+}
+
+
+/* GOOGLE SCHOLARS API CSS END */ 
