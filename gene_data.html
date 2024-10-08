@@ -6,6 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   </head>
 
   <body>
@@ -23,22 +24,47 @@
     </nav>
     <div class="container_gd">
       <div class="sect-one">
-          <div class="left-column">
-              <div class="dropdown">
-                  <input type="text" id="searchInput" placeholder="Search Gene IDs..." onkeyup="filterFunction()">
-                  <div id="dropdownList" class="dropdown-content"></div>
-              </div>
-              <div id="geneInfo" class="gene-info">
-                  <h3>Gene Information</h3>
-                  <div id="infoContent"></div>
-              </div>
+        <div class="left-column">
+          <div class="dropdown">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search Gene IDs..."
+              onkeyup="filterFunction()"
+            />
+            <div id="dropdownList" class="dropdown-content"></div>
+          </div>
+          <div id="geneInfo" class="gene-info">
+            <h3>Gene Information</h3>
+            <div id="infoContent"></div>
           </div>
           <div id="geneDescription" class="gene-description">
-              <h3>Description</h3>
-              <div id="descriptionContent"></div>
+            <h3>Description</h3>
+            <div id="descriptionContent"></div>
           </div>
+        </div>
+        <div id="geneDescription" class="gene-description">
+          <h3>Description</h3>
+          <div id="descriptionContent"></div>
+        </div>
       </div>
-  </div>
+    </div>
+    <div class="container_gd_2">
+      <div class="sect-two">
+        <h1>Select a Graph</h1>
+        <div id="pieChart" class="pie">Click here to view Pie Chart</div>
+        <div class="bar"></div>
+      </div>
+    </div>
+
+    <!-- Modal for Pie Chart -->
+    <div id="chartModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Gene Biotype Distribution</h1>
+        <div id="popupPieChart" style="width: 100%; height: 400px"></div>
+      </div>
+    </div>
 
     <footer><h1>FOOTER UNDER CONSTRUCTION</h1></footer>
     <script src="gene.js"></script>

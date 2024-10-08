@@ -1,4 +1,4 @@
-.sect-one {
+@mixin sects {
   height: 60vh; /* This controls the overall height of the section */
   position: relative;
   width: 95%;
@@ -9,7 +9,18 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  overflow: hidden; /* Ensure the content doesn't overflow the container */
+  overflow: hidden;
+}
+
+.sect-one {
+  @include sects;
+}
+
+.sect-two {
+  @include sects;
+  align-items: center;
+  flex-direction: column;
+  height: 160vh;
 }
 
 .left-column {
@@ -19,10 +30,10 @@
 }
 
 .gene-info {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-top: 20px; /* Add space between dropdown and info */
-    width: 100%; /* Full width of the left column */
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 20px; /* Add space between dropdown and info */
+  width: 100%; /* Full width of the left column */
 }
 
 .gene-description {
@@ -65,4 +76,17 @@
 
 .dropdown-item:hover {
   background-color: #f1f1f1;
+}
+
+@mixin boxes {
+  display: flex;
+  height: 60vh;
+  width: 80%;
+  border: 1px solid black;
+}
+.pie {
+  @include boxes;
+}
+.bar {
+  @include boxes;
 }
