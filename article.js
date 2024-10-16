@@ -35,18 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const artItem = document.createElement('li')
             artItem.style.display = 'flex';
+            artItem.style.flexDirection = 'column';
             artItem.style.justifyContent = 'space-between';
             artItem.style.textAlign = 'center';
             artItem.style.fontSize = '20px';
             artItem.style.marginLeft = '20%';
             artItem.style.marginRight = '20%';
-            artItem.style.border = '20%';
-
+            
             artItem.innerHTML = 
             `<div style = "margin: 15px">
                 <p style="padding: 3px; font-weight: bold;">Title: ${data.organic_results[i].title}</p>
                 <p style="padding: 3px">Publisher: ${data.organic_results[i].publication_info.summary} </p>
-                Link: <a style="padding: 3px; color: #04d9ff;" href="${data.organic_results[i].link}" target="_blank" rel="noopener noreferrer">${data.organic_results[i].link}</a>
+                Link: <a style="color: #00008B; padding: 3px;" href="${data.organic_results[i].link}" target="_blank" rel="noopener noreferrer">${data.organic_results[i].link}</a>
                 <p style="padding: 3px">Summary: ${data.organic_results[i].snippet} </p>
             </div>`;
 

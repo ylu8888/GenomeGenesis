@@ -1,55 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title> Genome Genesis </title>
-        <link rel="stylesheet" href="styles.css">
-        <meta charset="UTF-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content ="width=device-width, initial-scale=1.0">
-    </head>
+  <head>
+    <title>Genome Genesis</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-    <body>
-        <div class="container">
-            <div class="title-container">
-                <div class="subtitle">
-                    <img id="logo" src="images/logo.png">
-
-                    <form class="search-form">
-                        <input id="search-bar" type="text" placeholder="Search . . .">
-                    </form>
-
-                    
-
-                </div>
-                <!-- <h3>WebGenomics Team at Stony Brook University</h3> -->
-                
-               
-          
-            </div>
-
-            <div class="navbar">
-
-                <a href="index.html" class = "navbar-div"> Home </a>
-                <a href="about.html" class = "navbar-div"> About </a>
-                <a href="data.html" class = "navbar-div"> Data </a>
-                <a href="research.html" class = "navbar-div"> Research </a>
-                <a href="quiz.html" class = "navbar-div"> Quiz </a>
-                <a href="contact.html" class = "navbar-div"> Contact </a>
-                
-            </div>
-
-         
-
-            <div>
-                <h2 id="dict-heading">Search for Keywords using the NCI Dictionary of Cancer Terms</h2>
-            </div>
-            
-            <div class="dict-display">
-               
-                <div class="dictionary"> <script language="javascript" type="text/javascript" src="https://www.cancer.gov/publishedcontent/Js/TermDictionaryWidgetEnglish.js"></script> </div>
-            </div>
-
-
+  <body>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">
+          <img id="logo_id" src="images/logo2.png" />
         </div>
-    </body>
+        <div class="pages">
+          <a href="index.html" class="active">Home</a>
+          <a href="about.html">About</a>
+          <a href="data.html">Data</a>
+          <a href="research.html">Dict</a>
+          <a href="#">Team</a>
+          <a href="#">Blog</a>
+        </div>
+      </nav>
+      <div class="intro">
+        <div class="title">Genome <span id="title_span"> DATA </span></div>
+       
+        <div class="dict-display"> <script language="javascript" type="text/javascript" src="https://www.cancer.gov/publishedcontent/Js/TermDictionaryWidgetEnglish.js"></script> </div>
+
+      </div>
+    </div>
+
+    <footer><h1>FOOTER UNDER CONSTRUCTION</h1></footer>
+
+    <script src="nav-bar.js"></script>
+    <script src="data.js"></script>
+  </body>
 </html>
