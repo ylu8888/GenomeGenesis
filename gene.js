@@ -9,10 +9,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function fetchAllGenes() {
   try {
-    // Show loading animation
+    // Show loading animations for both sections
+    document.getElementById("loadingSectOne").style.display = "flex";
     document.getElementById("loading").style.display = "flex";
 
-    // Hide main content initially
+    // Hide main content for both sections initially
+    document.getElementById("sectOneContent").style.display = "none";
     document.getElementById("mainContent").style.display = "none";
 
     const response = await fetch("https://api.gdc.cancer.gov/genes?size=22534");
@@ -24,10 +26,12 @@ async function fetchAllGenes() {
 
     // Simulate delay (optional)
     setTimeout(() => {
-      // Hide loading animation
+      // Hide loading animations
+      document.getElementById("loadingSectOne").style.display = "none";
       document.getElementById("loading").style.display = "none";
 
-      // Show main content
+      // Show main content for both sections
+      document.getElementById("sectOneContent").style.display = "flex";
       document.getElementById("mainContent").style.display = "flex";
 
       // Optionally, process and display data
