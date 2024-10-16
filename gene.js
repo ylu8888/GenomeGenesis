@@ -22,6 +22,8 @@ async function fetchAllGenes() {
     }
     const data = await response.json();
     allGeneData = data.data.hits; // Store the entire gene data for access
+    console.log("This is all of the Gene Data")
+    console.log(allGeneData)
 
     // Simulate delay (optional)
     setTimeout(() => {
@@ -200,4 +202,90 @@ async function plotPieChart() {
       },
     }
   );
+}
+
+
+// Function to open the bar chart modal
+function openBarChartModal() {
+  const modal = document.getElementById("barChartModal");
+  modal.style.display = "block";
+
+  // Plot the bar chart using all genes (or a specific gene if needed)
+  plotBarChartForAllGenes();
+}
+
+// Function to close the bar chart modal
+function closeBarChartModal() {
+  const modal = document.getElementById("barChartModal");
+  modal.style.display = "none";
+}
+
+// Attach event listeners for the bar chart modal
+document.getElementById("barChartTrigger").addEventListener("click", openBarChartModal);
+document.querySelector(".closeBarChart").addEventListener("click", closeBarChartModal);
+
+// Function to plot the bar chart for all genes
+async function plotBarChartForAllGenes() {
+  if (allGeneData.length === 0) {
+    console.log("No gene data available to plot.");
+    return;
+  }
+
+  // Prepare data for the bar chart: we can plot the lengths of all genes
+  const labels = [];
+  const canonicalLengths = [];
+  const genomicLengths = [];
+  const cdsLengths = []; // Add this if you have canonical_transcript_length_cds
+
+  // Iterate over all genes to collect data
+  allGeneData.forEach((gene) => {
+    labels.push(gene.symbol || gene.name || gene.id);
+    canonicalLengths.push(gene.canonical_transcript_length || 0);
+    genomicLengths.push(gene.canonical_transcript_length_genomic || 0);
+    // cdsLengths.push(gene.canonical_transcript_length_cds || 0); // Add this if available
+  });
+
+  // Plot the bar chart using Plotly
+  const trace1 = {
+    x: labels,
+    y: canonicalLengths,
+    name: "Canonical Transcript Length",
+    type: "bar",
+  };
+
+  const trace2 = {
+    x: labels,
+    y: genomicLengths,
+    name: "Genomic Transcript Length",
+    type: "bar",
+  };
+
+  // Uncomment and use this if you have CDS lengths
+  // const trace3 = {
+  //   x: labels,
+  //   y: cdsLengths,
+  //   name: "CDS Transcript Length",
+  //   type: "bar",
+  // };
+
+  const data = [trace1, trace2]; // Add trace3 if you have CDS lengths
+
+  const layout = {
+    title: "Transcript Lengths for All Genes",
+    barmode: "group",
+    xaxis: {
+      title: "Gene Symbol",
+    },
+    yaxis: {
+      title: "Transcript Length (bp)",
+    },
+    margin: {
+      l: 50,
+      r: 50,
+      t: 80,
+      b: 150,
+    },
+  };
+
+  Plotly.newPlot(document.getElementById("popupBarChart"), data, layout);
 }

@@ -64,13 +64,11 @@
           <p>Loading data, please wait...</p>
         </div>
 
-        <!-- Main content, initially hidden -->
-        <div id="mainContent">
-          <h1>Select a Graph</h1>
-          <div id="pieChart" class="pie">Click here to view Pie Chart</div>
-          <div class="bar"></div>
-        </div>
-      </div>
+    <!-- Main content, initially hidden -->
+    <div id="mainContent">
+      <h1>Select a Graph</h1>
+      <div id="pieChart" class="pie">Click here to view Pie Chart</div>
+      <div id="barChartTrigger" class="bar">Click here to view Bar Chart</div> <!-- Updated div for triggering bar chart modal -->
     </div>
 
     <!-- Modal for Pie Chart -->
@@ -79,6 +77,15 @@
         <span class="close">&times;</span>
         <h1>Gene Biotype Distribution</h1>
         <div id="popupPieChart" style="width: 100%; height: 400px"></div>
+      </div>
+    </div>
+
+    <!-- Modal for Bar Chart -->
+    <div id="barChartModal" class="modal"> <!-- New modal for bar chart -->
+      <div class="modal-content">
+        <span class="closeBarChart">&times;</span> <!-- Updated class for closing bar chart modal -->
+        <h1>Gene Transcript Lengths</h1>
+        <div id="popupBarChart" style="width: 100%; height: 400px"></div> <!-- Div for bar chart -->
       </div>
     </div>
 
