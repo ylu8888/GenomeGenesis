@@ -51,9 +51,18 @@
     </div>
     <div class="container_gd_2">
       <div class="sect-two">
-        <h1>Select a Graph</h1>
-        <div id="pieChart" class="pie">Click here to view Pie Chart</div>
-        <div class="bar"></div>
+        <!-- Loading animation -->
+        <div id="loading" class="loading">
+          <div class="spinner"></div>
+          <p>Loading data, please wait...</p>
+        </div>
+
+        <!-- Main content, initially hidden -->
+        <div id="mainContent">
+          <h1>Select a Graph</h1>
+          <div id="pieChart" class="pie">Click here to view Pie Chart</div>
+          <div class="bar"></div>
+        </div>
       </div>
     </div>
 

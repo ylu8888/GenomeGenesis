@@ -1,13 +1,38 @@
 let allGeneData = []; // Store all gene data globally
 
+// Fetch all gene data when the page loads
+document.addEventListener("DOMContentLoaded", async () => {
+  await fetchAllGenes();
+  console.log("done");
+});
+
 async function fetchAllGenes() {
   try {
+    // Show loading animation
+    document.getElementById("loading").style.display = "flex";
+
+    // Hide main content initially
+    document.getElementById("mainContent").style.display = "none";
+
     const response = await fetch("https://api.gdc.cancer.gov/genes?size=22534");
     if (!response.ok) {
       throw new Error("Could not fetch resources");
     }
     const data = await response.json();
     allGeneData = data.data.hits; // Store the entire gene data for access
+
+    // Simulate delay (optional)
+    setTimeout(() => {
+      // Hide loading animation
+      document.getElementById("loading").style.display = "none";
+
+      // Show main content
+      document.getElementById("mainContent").style.display = "flex";
+
+      // Optionally, process and display data
+      console.log("Data fetched:", data.data.hits);
+    }, 1000); // Optional delay for demo
+
     return allGeneData; // Return the array of gene objects
   } catch (error) {
     console.log(error);
@@ -15,7 +40,6 @@ async function fetchAllGenes() {
 }
 
 async function populateDropdown() {
-  await fetchAllGenes(); // Ensure gene data is fetched
   const dropdownList = document.getElementById("dropdownList");
 
   // Clear existing items
@@ -118,16 +142,19 @@ document.querySelector(".close").addEventListener("click", closeModal);
 
 // Function to plot the pie chart inside the modal
 async function plotPieChart() {
-  const genes = await fetchAllGenes(); // Directly use the fetched data
+  if (allGeneData.length === 0) {
+    console.log("No gene data available to plot.");
+    return;
+  }
 
   // Count frequencies of each biotype
   const biotypeCounts = {};
-  genes.forEach((gene) => {
+  allGeneData.forEach((gene) => {
     const biotype = gene.biotype || "Unknown";
     biotypeCounts[biotype] = (biotypeCounts[biotype] || 0) + 1;
   });
 
-  // Prepare data for the pie chart
+  // Prepare data for pie chart
   const labels = Object.keys(biotypeCounts);
   const values = Object.values(biotypeCounts);
 
@@ -137,9 +164,13 @@ async function plotPieChart() {
     (label, i) => `${label} (${((values[i] / total) * 100).toFixed(2)}%)`
   );
 
-  const bioData = { labels: labelsWithPercent, values };
+  // Data for the pie chart
+  const bioData = {
+    labels: labelsWithPercent,
+    values: values,
+  };
 
-  // Render pie chart in the modal div
+  // Plot pie chart using Plotly
   Plotly.newPlot(
     document.getElementById("popupPieChart"),
     [
