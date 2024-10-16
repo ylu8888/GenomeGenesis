@@ -221,6 +221,7 @@ document.getElementById("barChartBySite").addEventListener("click", async functi
 document.querySelector(".close-bar").addEventListener("click", closeBarModal);
 
 // Function to plot the bar chart inside the modal
+
 async function plotBarChart() {
   const fetchData = await fetch('https://api.gdc.cancer.gov/cases?size=5000')
     .then(response => {
