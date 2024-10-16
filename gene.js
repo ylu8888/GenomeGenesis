@@ -3,6 +3,7 @@ let allGeneData = []; // Store all gene data globally
 // Fetch all gene data when the page loads
 document.addEventListener("DOMContentLoaded", async () => {
   await fetchAllGenes();
+  await plotBarChart();
   console.log("done");
 });
 
@@ -132,7 +133,7 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-// Attach event listeners to open/close modal
+// Attach event listeners to open/close modal for pie chart
 document.querySelector(".pie").addEventListener("click", async function () {
   openModal();
   await plotPieChart();
@@ -197,3 +198,70 @@ async function plotPieChart() {
     }
   );
 }
+
+
+// Bar Chart for Distribution of Cases by Primary Site
+// Function to open / close the bar chart modal
+function openBarModal() {
+  const modal = document.getElementById("barChartModal");
+  modal.style.display = "block";
+}
+
+function closeBarModal() {
+  const modal = document.getElementById("barChartModal");
+  modal.style.display = "none";
+}
+
+// Event listeners for opening/closing the bar chart modal
+document.getElementById("barChartBySite").addEventListener("click", async function () {
+  openBarModal();
+  await plotBarChart(); // Plot the bar chart when the modal is opened
+});
+
+document.querySelector(".close-bar").addEventListener("click", closeBarModal);
+
+// Function to plot the bar chart inside the modal
+async function plotBarChart() {
+  const fetchData = await fetch('https://api.gdc.cancer.gov/cases?size=5000')
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to fetch data');
+      return response.json();
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+      return null;
+    });
+
+  // Process the data
+  const processedData = (() => {
+    if (!fetchData || !fetchData.data) return { labels: [], values: [] };
+    const primarySites = {};
+    fetchData.data.hits.forEach(hit => {
+      const site = hit.primary_site || 'Unknown'; // extracts primary site
+      primarySites[site] = (primarySites[site] || 0) + 1;   // tallys up the amount of cases
+    });
+    return { labels: Object.keys(primarySites), values: Object.values(primarySites) };
+  })();
+
+  const { labels, values } = processedData;
+
+  // Plot the bar chart using Plotly
+  Plotly.newPlot(
+    document.getElementById("popupBarChart"),
+    [
+      {
+        x: labels,
+        y: values,
+        type: 'bar',
+        text: values.map(String),  // Add values on each bar
+        textposition: 'auto',      // Position the text inside the bars
+      },
+    ],
+    {
+      title: 'Distribution of Cases by Primary Site',
+      xaxis: { title: 'Primary Site' },  // X-axis label
+      yaxis: { title: 'Number of Cases' }  // Y-axis label
+    }
+  );
+}
+
