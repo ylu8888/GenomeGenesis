@@ -24,31 +24,38 @@
     </nav>
     <div class="container_gd">
       <div class="sect-one">
-        <div class="left-column">
-          <div class="dropdown">
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="Search Gene IDs..."
-              onkeyup="filterFunction()"
-            />
-            <div id="dropdownList" class="dropdown-content"></div>
+        <!-- Loading animation -->
+        <div id="loadingSectOne" class="loading">
+          <div class="spinner"></div>
+          <p>Loading gene data, please wait...</p>
+        </div>
+
+        <!-- Main content, initially hidden -->
+        <div id="sectOneContent" style="display: none">
+          <div class="left-column">
+            <div class="dropdown">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Gene IDs..."
+                onkeyup="filterFunction()"
+              />
+              <div id="dropdownList" class="dropdown-content"></div>
+            </div>
+            <div id="geneInfo" class="gene-info">
+              <h3>Gene Information</h3>
+              <div id="infoContent"></div>
+            </div>
           </div>
-          <div id="geneInfo" class="gene-info">
-            <h3>Gene Information</h3>
-            <div id="infoContent"></div>
-          </div>
+
           <div id="geneDescription" class="gene-description">
             <h3>Description</h3>
             <div id="descriptionContent"></div>
           </div>
         </div>
-        <div id="geneDescription" class="gene-description">
-          <h3>Description</h3>
-          <div id="descriptionContent"></div>
-        </div>
       </div>
     </div>
+
     <div class="container_gd_2">
       <div class="sect-two">
         <!-- Loading animation -->
