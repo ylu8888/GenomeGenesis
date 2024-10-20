@@ -865,39 +865,3 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */
-
-/*articles search stuff and dictionary*/
-
-.search-form{
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-.search-input{
-  height: 40px;
-  width: 300px;
-  text-align: center;
-  border: 1px solid #000000;
-}
-
-.search-btn{
-  height: 40px;
-}
-
-.article-display li{
-  border: 2px solid black;
-  border-radius: 8px; 
-  margin: 30px;
-}
-
-.dict-display{
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center;
-  width: 300px;
-  margin-top: 20px;
-}
-
-/*article search stuff and dictionary*/
