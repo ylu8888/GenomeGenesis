@@ -21,6 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
         artList.removeChild(artList.firstChild);
     }
 
+   // fetch(`https://corsproxy.io/?https://serpapi.com/search.json?engine=google_scholar&q=${userInput}&api_key=${apiKey}`)
+
+    
+    //fetch(`https://corsproxy.io/?https://serpapi.com/search.json?engine=google_scholar&q=${userInput}&api_key=${apiKey}`)
     fetch(`https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json?engine=google_scholar&q=${userInput}&api_key=${apiKey}`)
     .then(response => {
         return response.json(); 
