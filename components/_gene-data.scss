@@ -1,4 +1,4 @@
-.sect-one {
+@mixin sects {
   height: 60vh; /* This controls the overall height of the section */
   position: relative;
   width: 95%;
@@ -9,29 +9,110 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  overflow: hidden; /* Ensure the content doesn't overflow the container */
+  overflow: hidden;
+}
+
+.sect-one {
+  @include sects;
+  align-items: flex-start; /* Align them at the top */
+}
+
+.sect-two {
+  @include sects;
+  align-items: center;
+  flex-direction: column;
+  height: 160vh;
+}
+
+/* Hide spinner initially */
+.loading {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+.loading .spinner {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #3498db;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+#sectOneContent {
+  display: flex;
+  justify-content: space-between; /* Add space between the two columns */
+  align-items: flex-start; /* Align them at the top */
+  padding: 20px;
+  width: 95%;
+}
+
+#mainContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+#sectOneContent {
+  display: flex; /* Flexbox layout */
+  justify-content: space-between; /* Space between left and right columns */
+  align-items: flex-start; /* Align at the top */
+  width: 100%; /* Full width of the parent container */
+  flex-direction: row;
 }
 
 .left-column {
   display: flex;
-  flex-direction: column; /* Stack search bar and gene info vertically */
-  width: 40%; /* Adjust width for left content */
+  flex-direction: column; /* Stack the elements (dropdown, gene info) vertically */
+  width: 45%; /* Adjust width for left content */
 }
 
 .gene-info {
-    border: 1px solid #ddd;
-    padding: 10px;
-    margin-top: 20px; /* Add space between dropdown and info */
-    width: 100%; /* Full width of the left column */
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%; /* Full width of the left column */
 }
 
 .gene-description {
   border: 1px solid #ddd;
   padding: 10px;
-  width: 40%; /* Adjust width for the description section */
-  align-self: flex-start; /* Align the description to the top */
-  max-height: 100%; /* Prevent the description from exceeding the container height */
-  overflow-y: auto; /* Enable scrolling if the content is too large */
+  width: 45%; /* Adjust width for the description section */
+  max-height: 100%; /* Prevent overflow */
+  overflow-y: auto; /* Scroll if content exceeds container height */
 }
 
 .dropdown {
@@ -65,4 +146,19 @@
 
 .dropdown-item:hover {
   background-color: #f1f1f1;
+}
+
+@mixin boxes {
+  display: flex;
+  height: 60vh;
+  width: 80%;
+  border: 1px solid black;
+}
+
+.pie {
+  @include boxes;
+}
+
+.bar {
+  @include boxes;
 }
