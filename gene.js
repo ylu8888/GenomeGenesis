@@ -51,13 +51,13 @@ async function populateDropdown() {
   // Clear existing items
   dropdownList.innerHTML = "";
 
-  // Create dropdown items for each gene ID
+  // Create dropdown items for each gene ID and name
   allGeneData.forEach((gene) => {
     const item = document.createElement("div");
     item.className = "dropdown-item";
-    item.textContent = gene.id; // Use gene ID as the item text
+    item.textContent = `${gene.id} - ${gene.name}`; // Use both gene ID and name as the item text
     item.onclick = () => {
-      document.getElementById("searchInput").value = gene.id; // Set input to clicked item
+      document.getElementById("searchInput").value = gene.id; // Set input to clicked item's ID
       displayGeneInfo(gene); // Display gene information
       dropdownList.style.display = "none"; // Hide dropdown after selection
     };
@@ -76,6 +76,7 @@ function filterFunction() {
 
   for (let i = 0; i < items.length; i++) {
     const txtValue = items[i].textContent || items[i].innerText;
+    // Check if either the gene ID or name matches the filter
     items[i].style.display = txtValue.toLowerCase().includes(filter)
       ? ""
       : "none";
@@ -224,28 +225,30 @@ function closeBarChartModal() {
 document.getElementById("barChartTrigger").addEventListener("click", openBarChartModal);
 document.querySelector(".closeBarChart").addEventListener("click", closeBarChartModal);
 
-// Function to plot the bar chart for all genes
 async function plotBarChartForAllGenes() {
   if (allGeneData.length === 0) {
     console.log("No gene data available to plot.");
     return;
   }
 
-  // Prepare data for the bar chart: we can plot the lengths of all genes
+  // Sort genes by cytoband first
+  const sortedGeneData = allGeneData.sort((a, b) => {
+    const cytobandA = a.cytoband[0] || "";
+    const cytobandB = b.cytoband[0] || "";
+    return cytobandA.localeCompare(cytobandB);
+  });
+
+  // Prepare data for the bar chart
   const labels = [];
   const canonicalLengths = [];
   const genomicLengths = [];
-  const cdsLengths = []; // Add this if you have canonical_transcript_length_cds
 
-  // Iterate over all genes to collect data
-  allGeneData.forEach((gene) => {
+  sortedGeneData.forEach((gene) => {
     labels.push(gene.symbol || gene.name || gene.id);
     canonicalLengths.push(gene.canonical_transcript_length || 0);
     genomicLengths.push(gene.canonical_transcript_length_genomic || 0);
-    // cdsLengths.push(gene.canonical_transcript_length_cds || 0); // Add this if available
   });
 
-  // Plot the bar chart using Plotly
   const trace1 = {
     x: labels,
     y: canonicalLengths,
@@ -260,21 +263,14 @@ async function plotBarChartForAllGenes() {
     type: "bar",
   };
 
-  // Uncomment and use this if you have CDS lengths
-  // const trace3 = {
-  //   x: labels,
-  //   y: cdsLengths,
-  //   name: "CDS Transcript Length",
-  //   type: "bar",
-  // };
-
-  const data = [trace1, trace2]; // Add trace3 if you have CDS lengths
+  const data = [trace1, trace2];
 
   const layout = {
-    title: "Transcript Lengths for All Genes",
+    title: "Transcript Lengths for All Genes (Sorted by Cytoband)",
     barmode: "group",
     xaxis: {
       title: "Gene Symbol",
+      tickangle: -45,
     },
     yaxis: {
       title: "Transcript Length (bp)",
@@ -287,5 +283,24 @@ async function plotBarChartForAllGenes() {
     },
   };
 
-  Plotly.newPlot(document.getElementById("popupBarChart"), data, layout);
+  // Plot the bar chart
+  Plotly.newPlot(document.getElementById("popupBarChart"), data, layout).then(() => {
+    // After the chart is plotted, select the bar elements
+    const bars = document.querySelectorAll('#popupBarChart .bar');
+
+    // Set cursor to pointer for each bar and add click event listeners
+    bars.forEach((bar, index) => {
+      bar.style.cursor = 'pointer'; // Change cursor to pointer on hover
+
+      bar.addEventListener('click', () => {
+        const geneName = labels[index];
+        
+        // Store the gene name in localStorage
+        localStorage.setItem('geneName', geneName);
+
+        // Redirect to the articles page
+        window.location.href = 'articles.html';
+      });
+    });
+  });
 }
