@@ -19,46 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const userInput = searchInput.value; //get user search input
 
-<<<<<<< HEAD
-   // fetch(`https://corsproxy.io/?https://serpapi.com/search.json?engine=google_scholar&q=${userInput}&api_key=${apiKey}`)
-
-    
-    //fetch(`https://corsproxy.io/?https://serpapi.com/search.json?engine=google_scholar&q=${userInput}&api_key=${apiKey}`)
-    fetch(`https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json?engine=google_scholar&q=${userInput}&api_key=${apiKey}`)
-    .then(response => {
-        return response.json(); 
-    })
-    .then(data => { 
-        console.log('DATA INCOMING:', data);
-        
-        //loop through each article in the organic results
-        //append the newly created list item to display 
-        for(let i = 0; i < data.organic_results.length; i++){
-            console.log(data.organic_results[i].title)
-
-            const artItem = document.createElement('li')
-            artItem.style.display = 'flex';
-            artItem.style.flexDirection = 'column';
-            artItem.style.justifyContent = 'space-between';
-            artItem.style.textAlign = 'center';
-            artItem.style.fontSize = '20px';
-            artItem.style.marginLeft = '20%';
-            artItem.style.marginRight = '20%';
-            
-            artItem.innerHTML = 
-            `<div style = "margin: 15px">
-                <p style="padding: 3px; font-weight: bold;">Title: ${data.organic_results[i].title}</p>
-                <p style="padding: 3px">Publisher: ${data.organic_results[i].publication_info.summary} </p>
-                Link: <a style="color: #00008B; padding: 3px;" href="${data.organic_results[i].link}" target="_blank" rel="noopener noreferrer">${data.organic_results[i].link}</a>
-                <p style="padding: 3px">Summary: ${data.organic_results[i].snippet} </p>
-            </div>`;
-
-            artList.appendChild(artItem)
-=======
         if (userInput === '') { //if nothing is in search bar just return
             console.log('enter a valid input');
             return; // Exit the function if input is invalid
->>>>>>> bd5b39118e746c901467024771820c841c2827b6
         }
 
         console.log('this is the input: ' + userInput);
