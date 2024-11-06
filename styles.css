@@ -865,3 +865,31 @@ footer {
   text-decoration: none;
   cursor: pointer;
 }/*# sourceMappingURL=styles.css.map */
+
+/* SEARCH ARTICLE STUFF */
+
+.search-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+  
+
+.search-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.search-btn{
+  height: 50px;
+  width: 60px;
+}
+
+
+/*SEARCH STUFF */
