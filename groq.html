@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Genome Articles</title>
+    <title>Genome Groq</title>
     <link rel="stylesheet" href="styles.css" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,11 +9,6 @@
   </head>
 
   <body>
-<<<<<<< HEAD
-    <nav class="nav">
-      <div class="logo">
-        <img id="logo_id" src="images/logo2.png" />
-=======
     <div class="container">
       <nav class="nav">
         <div class="logo">
@@ -35,37 +30,42 @@
           Explore different data representations of cancer from tumor samples
         </div>
         <a class="learn_more_btn" href="about.html">Learn More</a>
->>>>>>> 2bdc7b7069bf0bf18f050f8b7d475ba24ede31e8
       </div>
-      <div class="pages">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="data.html">Data</a>
-        <a href="articles.html" class="active">Articles</a>
-        <a href="research.html">Dictionary</a>
-        <a href="#">Team</a>
-        <a href="#">Blog</a>
-      </div>
-    </nav>
-    <div class="container_art">
-      <form class="search-form">
-        <input
-          class="search-input"
-          type="text"
-          name="query"
-          placeholder="Search for any article..."
-          required
-        />
-        <button class="search-btn" type="submit">Search</button>
-      </form>
-
-      <div class="article-display"></div>
     </div>
+
+   
+    <form class="search-form">
+        <input class="search-input" type="text" name="query" placeholder="Search for anything..." required>
+        <button class="search-btn" type="submit">Search</button>
+    </form>
+
+    <div class="container_4">
+      <div class="article_title">
+        <h1>Articles</h1>
+        <p>
+          Read medical science articles to learn the latest updates on cancer
+          research
+        </p>
+        <a class="learn_more_btn" href="articles.html">Learn More</a>
+      </div>
+      <div class="dictionary_title">
+        <h1>Dictionary</h1>
+        <p>
+          Look up terms and vocabulary words related to cancer and medical
+          science
+        </p>
+        <a class="learn_more_btn" href="research.html">Learn More</a>
+      </div>
+    </div>
+
+    <!-- <form class="search-form">
+      <input class="search-input" type="text" name="query" placeholder="Search..." required>
+      <button class="search-btn" type="submit">Search</button>
+  </form> -->
 
     <footer><h1>FOOTER UNDER CONSTRUCTION</h1></footer>
 
-    <script src="article.js"></script>
     <script src="nav-bar.js"></script>
-    <script src="data.js"></script>
+    <script type="module" src="groq.js"></script>
   </body>
 </html>

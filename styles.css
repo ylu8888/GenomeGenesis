@@ -877,6 +877,7 @@ footer {
   color: black;
   text-decoration: none;
   cursor: pointer;
+<<<<<<< HEAD
 }
 
 /* Limit width of the article display container and center it */
@@ -901,3 +902,34 @@ footer {
 .article-display a:hover {
   color: #ff6347 !important; /* Optional: color when hovering over the link */
 }/*# sourceMappingURL=styles.css.map */
+=======
+}/*# sourceMappingURL=styles.css.map */
+
+/* SEARCH ARTICLE STUFF */
+
+.search-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+  
+
+.search-input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.search-btn{
+  height: 50px;
+  width: 60px;
+}
+
+
+/*SEARCH STUFF */
+>>>>>>> 2bdc7b7069bf0bf18f050f8b7d475ba24ede31e8
