@@ -1,0 +1,23 @@
+/* Limit width of the article display container and center it */
+.article-display {
+  display: flex;
+  flex-direction: row;
+  max-width: 80%; /* Adjust to your preferred width */
+  overflow: auto;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+  height: 50vh;
+  width: 80%;
+  p {
+    color: white;
+  }
+  a {
+    color: #f89880 !important; /* Change this to any color you like */
+    text-decoration: none; /* Optional: removes underline */
+  }
+
+  a:hover {
+    color: #ff6347 !important; /* Optional: color when hovering over the link */
+  }
+}
