@@ -14,7 +14,7 @@ async function fetchAllGenes() {
 
     // Hide main content for both sections initially
     document.getElementById("sectOneContent").style.display = "none";
-    document.getElementById("mainContent").style.display = "none";
+    document.getElementById("content-table").style.display = "none";
 
     const response = await fetch("https://api.gdc.cancer.gov/genes?size=22534");
     if (!response.ok) {
@@ -22,8 +22,8 @@ async function fetchAllGenes() {
     }
     const data = await response.json();
     allGeneData = data.data.hits; // Store the entire gene data for access
-    console.log("This is all of the Gene Data")
-    console.log(allGeneData)
+    console.log("This is all of the Gene Data");
+    console.log(allGeneData);
 
     // Simulate delay (optional)
     setTimeout(() => {
@@ -33,7 +33,7 @@ async function fetchAllGenes() {
 
       // Show main content for both sections
       document.getElementById("sectOneContent").style.display = "flex";
-      document.getElementById("mainContent").style.display = "flex";
+      document.getElementById("content-table").style.display = "flex";
 
       // Optionally, process and display data
       console.log("Data fetched:", data.data.hits);
@@ -127,24 +127,29 @@ document.addEventListener("click", function (event) {
   }
 });
 
-// Function to open the modal
-function openModal() {
+function openModal(chartType) {
   const modal = document.getElementById("chartModal");
   modal.style.display = "block";
+
+  // Clear existing content in the popup area before rendering the selected chart
+  document.getElementById("popupPieChart").style.display = "none";
+  document.getElementById("popupBarChart").style.display = "none";
+
+  if (chartType === "pie") {
+    document.getElementById("popupPieChart").style.display = "block";
+    plotPieChart("popupPieChart");
+  } else if (chartType === "bar") {
+    document.getElementById("popupBarChart").style.display = "block";
+    plotBarChartForAllGenes("popupBarChart");
+  }
 }
 
 // Function to close the modal
 function closeModal() {
-  const modal = document.getElementById("chartModal");
-  modal.style.display = "none";
+  document.getElementById("chartModal").style.display = "none";
 }
 
-// Attach event listeners to open/close modal
-document.querySelector(".pie").addEventListener("click", async function () {
-  openModal();
-  await plotPieChart();
-});
-
+// Attach event listeners for the close buttons
 document.querySelector(".close").addEventListener("click", closeModal);
 
 // Function to plot the pie chart inside the modal
@@ -205,26 +210,6 @@ async function plotPieChart() {
   );
 }
 
-
-// Function to open the bar chart modal
-function openBarChartModal() {
-  const modal = document.getElementById("barChartModal");
-  modal.style.display = "block";
-
-  // Plot the bar chart using all genes (or a specific gene if needed)
-  plotBarChartForAllGenes();
-}
-
-// Function to close the bar chart modal
-function closeBarChartModal() {
-  const modal = document.getElementById("barChartModal");
-  modal.style.display = "none";
-}
-
-// Attach event listeners for the bar chart modal
-document.getElementById("barChartTrigger").addEventListener("click", openBarChartModal);
-document.querySelector(".closeBarChart").addEventListener("click", closeBarChartModal);
-
 async function plotBarChartForAllGenes() {
   if (allGeneData.length === 0) {
     console.log("No gene data available to plot.");
@@ -284,23 +269,25 @@ async function plotBarChartForAllGenes() {
   };
 
   // Plot the bar chart
-  Plotly.newPlot(document.getElementById("popupBarChart"), data, layout).then(() => {
-    // After the chart is plotted, select the bar elements
-    const bars = document.querySelectorAll('#popupBarChart .bar');
+  Plotly.newPlot(document.getElementById("popupBarChart"), data, layout).then(
+    () => {
+      // After the chart is plotted, select the bar elements
+      const bars = document.querySelectorAll("#popupBarChart .bar");
 
-    // Set cursor to pointer for each bar and add click event listeners
-    bars.forEach((bar, index) => {
-      bar.style.cursor = 'pointer'; // Change cursor to pointer on hover
+      // Set cursor to pointer for each bar and add click event listeners
+      bars.forEach((bar, index) => {
+        bar.style.cursor = "pointer"; // Change cursor to pointer on hover
 
-      bar.addEventListener('click', () => {
-        const geneName = labels[index];
-        
-        // Store the gene name in localStorage
-        localStorage.setItem('geneName', geneName);
+        bar.addEventListener("click", () => {
+          const geneName = labels[index];
 
-        // Redirect to the articles page
-        window.location.href = 'articles.html';
+          // Store the gene name in localStorage
+          localStorage.setItem("geneName", geneName);
+
+          // Redirect to the articles page
+          window.location.href = "articles.html";
+        });
       });
-    });
-  });
+    }
+  );
 }

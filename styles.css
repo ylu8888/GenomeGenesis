@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -759,11 +760,48 @@ footer {
   width: 95%;
 }
 
-#mainContent {
+.content-table {
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  justify-content: space-between;
+}
+.content-table .left-section,
+.content-table .right-section {
+  width: 48%;
+}
+.content-table .left-section {
+  display: flex;
+  flex-direction: column;
+}
+.content-table .left-section .paragraph-content {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+.content-table .right-section .graph {
+  height: 300px;
+  border: 1px solid #ddd;
+  background: #fff;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
-  flex-direction: column;
-  width: 50%;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+.content-table .right-section .popup-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.content-table .right-section .popup-button:hover {
+  background-color: #2980b9;
 }
 
 #sectOneContent {
@@ -842,42 +880,52 @@ footer {
   border: 1px solid black;
 }
 
-/* Modal styling */
 .modal {
-  display: none;
+  display: none; /* Hidden by default */
   position: fixed;
-  z-index: 1;
-  padding-top: 100px;
+  z-index: 1000; /* High z-index to appear on top */
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: auto;
+  position: relative;
+  background-color: #ffffff;
+  margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  max-width: 1000px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1001; /* Ensure it appears above the modal background */
 }
 
+/* Close button styling */
 .close {
-  color: #aaa;
-  float: right;
+  position: absolute;
+  top: 15px;
+  right: 20px;
   font-size: 28px;
   font-weight: bold;
+  color: #333;
+  background-color: #fff; /* Temporary background for visibility */
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1002; /* Ensure it’s on top of everything else in the modal */
 }
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #000;
+  background-color: #f1f1f1; /* Hover effect for visibility */
   text-decoration: none;
   cursor: pointer;
-<<<<<<< HEAD
 }
 
 /* Limit width of the article display container and center it */
@@ -902,34 +950,3 @@ footer {
 .article-display a:hover {
   color: #ff6347 !important; /* Optional: color when hovering over the link */
 }/*# sourceMappingURL=styles.css.map */
-=======
-}/*# sourceMappingURL=styles.css.map */
-
-/* SEARCH ARTICLE STUFF */
-
-.search-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
-  
-
-.search-input{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
-  height: 50px;
-  text-align: center;
-  font-size: 18px;
-}
-
-.search-btn{
-  height: 50px;
-  width: 60px;
-}
-
-
-/*SEARCH STUFF */
->>>>>>> 2bdc7b7069bf0bf18f050f8b7d475ba24ede31e8

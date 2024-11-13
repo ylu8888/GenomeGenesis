@@ -66,28 +66,44 @@
           <p>Loading data, please wait...</p>
         </div>
 
-    <!-- Main content, initially hidden -->
-    <div id="mainContent">
-      <h1>Select a Graph</h1>
-      <div id="pieChart" class="pie">Click here to view Pie Chart</div>
-      <div id="barChartTrigger" class="bar">Click here to view Bar Chart</div> <!-- Updated div for triggering bar chart modal -->
-    </div>
+        <!-- Main content, initially hidden -->
+        <div id="content-table" style="display: none">
+          <!-- Left section for paragraphs and gene information -->
+          <div class="left-section">
+            <div class="paragraph-content">
+              <h3>Gene Information</h3>
+              <div id="infoContent"></div>
+              <h3>Description</h3>
+              <div id="descriptionContent"></div>
+            </div>
+          </div>
 
-    <!-- Modal for Pie Chart -->
-    <div id="chartModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h1>Gene Biotype Distribution</h1>
-        <div id="popupPieChart" style="width: 100%; height: 400px"></div>
+          <!-- Right section for graphs with popup options -->
+          <div class="right-section">
+            <h3>Graphs</h3>
+            <div id="pieChartContainer">
+              <div id="pieChart" class="graph">Gene Biotype Distribution</div>
+              <button class="popup-button" onclick="openModal('pie')">
+                Enlarge Pie Chart
+              </button>
+            </div>
+            <div id="barChartContainer">
+              <div id="barChart" class="graph">Gene Transcript Lengths</div>
+              <button class="popup-button" onclick="openModal('bar')">
+                Enlarge Bar Chart
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Modal for Bar Chart -->
-    <div id="barChartModal" class="modal"> <!-- New modal for bar chart -->
+    <!-- Modal for enlarged charts -->
+    <div id="chartModal" class="modal">
       <div class="modal-content">
-        <span class="closeBarChart">&times;</span> <!-- Updated class for closing bar chart modal -->
-        <h1>Gene Transcript Lengths</h1>
-        <div id="popupBarChart" style="width: 100%; height: 400px"></div> <!-- Div for bar chart -->
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="popupPieChart" style="width: 100%; height: 400px"></div>
+        <div id="popupBarChart" style="width: 100%; height: 400px"></div>
       </div>
     </div>
 
