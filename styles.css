@@ -713,6 +713,7 @@ footer {
   padding: 20px;
   overflow: hidden;
   align-items: center;
+  justify-items: center;
   flex-direction: column;
   height: 160vh;
 }
@@ -760,28 +761,39 @@ footer {
   width: 95%;
 }
 
-.content-table {
+#content-table {
   display: flex;
   width: 100%;
   padding: 20px;
   justify-content: space-between;
 }
-.content-table .left-section,
-.content-table .right-section {
-  width: 48%;
-}
-.content-table .left-section {
+#content-table .left-section {
+  background-color: skyblue;
   display: flex;
   flex-direction: column;
+  width: 50%;
+  height: 100vh;
 }
-.content-table .left-section .paragraph-content {
+#content-table .left-section .paragraph-content {
   padding: 20px;
   border: 1px solid #ddd;
   background: #f9f9f9;
   overflow-y: auto;
   max-height: 80vh;
 }
-.content-table .right-section .graph {
+#content-table .right-section {
+  width: 50%;
+  height: 100vh;
+  background-color: pink;
+}
+#content-table .right-section .paragraph-content {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+#content-table .right-section .graph {
   height: 300px;
   border: 1px solid #ddd;
   background: #fff;
@@ -792,7 +804,7 @@ footer {
   text-align: center;
   cursor: pointer;
 }
-.content-table .right-section .popup-button {
+#content-table .right-section .popup-button {
   background-color: #3498db;
   color: #fff;
   border: none;
@@ -800,7 +812,7 @@ footer {
   margin-bottom: 20px;
   cursor: pointer;
 }
-.content-table .right-section .popup-button:hover {
+#content-table .right-section .popup-button:hover {
   background-color: #2980b9;
 }
 

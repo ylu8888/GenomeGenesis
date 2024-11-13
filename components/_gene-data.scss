@@ -20,6 +20,7 @@
 .sect-two {
   @include sects;
   align-items: center;
+  justify-items: center;
   flex-direction: column;
   height: 160vh;
 }
@@ -79,20 +80,17 @@
   width: 95%;
 }
 
-.content-table {
+#content-table {
   display: flex;
   width: 100%;
   padding: 20px;
   justify-content: space-between;
-
-  .left-section,
-  .right-section {
-    width: 48%;
-  }
-
   .left-section {
+    background-color: skyblue;
     display: flex;
     flex-direction: column;
+    width: 50%;
+    height: 100vh;
     .paragraph-content {
       padding: 20px;
       border: 1px solid #ddd;
@@ -103,6 +101,16 @@
   }
 
   .right-section {
+    width: 50%;
+    height: 100vh;
+    background-color: pink;
+    .paragraph-content {
+      padding: 20px;
+      border: 1px solid #ddd;
+      background: #f9f9f9;
+      overflow-y: auto;
+      max-height: 80vh;
+    }
     .graph {
       height: 300px;
       border: 1px solid #ddd;

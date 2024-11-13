@@ -71,8 +71,6 @@
           <!-- Left section for paragraphs and gene information -->
           <div class="left-section">
             <div class="paragraph-content">
-              <h3>Gene Information</h3>
-              <div id="infoContent"></div>
               <h3>Description</h3>
               <div id="descriptionContent"></div>
             </div>
@@ -80,7 +78,9 @@
 
           <!-- Right section for graphs with popup options -->
           <div class="right-section">
-            <h3>Graphs</h3>
+            <div class="paragraph-content">
+              <h3>Graphs</h3>
+            </div>
             <div id="pieChartContainer">
               <div id="pieChart" class="graph">Gene Biotype Distribution</div>
               <button class="popup-button" onclick="openModal('pie')">
