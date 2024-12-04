@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Genome Genesis</title>
+        <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+
+    <body>
+        <nav class="nav">
+            <div class="logo">
+                <img id="logo_id" src="images/logo2.png" />
+            </div>
+            <div class="pages">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="data.html" class="active">Data</a>
+                <a href="articles.html">Articles</a>
+                <a href="research.html">Dictionary</a>
+                <a href="#">Team</a>
+                <a href="#">Blog</a>
+            </div>
+        </nav>
+        <div class="container_gd">
+            <div class="sect-one">
+                <!-- Loading animation -->
+                <div id="loadingSectOne" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading cases data, please wait...</p>
+                </div>
+
+                <!-- Main content, initially hidden -->
+                <div id="sectOneContent" style="display: none">
+                    <div class="left-column">
+                        <div class="dropdown">
+                            <input
+                                type="text"
+                                id="searchInput"
+                                placeholder="Search Cases IDs..."
+                                onkeyup="filterFunction()" />
+                            <div
+                                id="dropdownList"
+                                class="dropdown-content"></div>
+                        </div>
+                        <div id="geneInfo" class="gene-info">
+                            <h3>Cases Information</h3>
+                            <div id="infoContent"></div>
+                        </div>
+                    </div>
+
+                    <div id="geneDescription" class="gene-description">
+                        <h3>Description</h3>
+                        <div id="descriptionContent"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container_gd_2">
+            <div class="sect-two">
+                <!-- Loading animation -->
+                <div id="loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading data, please wait...</p>
+                </div>
+
+                <!-- Main content, initially hidden -->
+                <div id="content-table" style="display: none">
+                    <!-- Left section for paragraphs and gene information -->
+                    <div class="left-section">
+                        <div class="paragraph-content">
+                            <h3>Description</h3>
+                            <div id="descriptionContent"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right section for graphs with popup options -->
+                    <div class="right-section">
+                        <div class="paragraph-content">
+                            <h3>Graphs</h3>
+                        </div>
+                        <div id="pieChartContainer">
+                            <div id="pieChart" class="graph">
+                                Distribution of Cases By Primary Site
+                            </div>
+                            <button
+                                class="popup-button"
+                                onclick="openModal('pie')">
+                                Enlarge Pie Chart
+                            </button>
+                        </div>
+                        <div id="barChartContainer">
+                            <div id="barChart" class="graph">
+                                Distribution of Cancer Types
+                            </div>
+                            <button
+                                class="popup-button"
+                                onclick="openModal('bar')">
+                                Enlarge Bar Chart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for enlarged charts -->
+        <div id="chartModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div
+                    id="popupPieChart"
+                    style="width: 100%; height: 400px"></div>
+                <div
+                    id="popupBarChart"
+                    style="width: 100%; height: 400px"></div>
+            </div>
+        </div>
+
+        <script src="cases.js"></script>
+        <script src="nav-bar.js"></script>
+    </body>
+</html>
